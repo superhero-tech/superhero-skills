@@ -52,13 +52,14 @@ We publish a skill only after:
 
 We do not publish demo-only workflows or add skills to make the catalogue look bigger. A skill stays in the lab until it meets this bar.
 
-## Install and make them yours
+## Installation (30-second setup)
 
-When the first skills pass the publishing bar, choose how you want to install them.
+Once the first skills are published, pick one of two routes. The Claude Code plugin installs the full set as one managed bundle. [`skills.sh`](https://skills.sh) lets you choose individual skills and the agents to install them for. If you use Claude Code, pick one route: installing both gives you every skill twice.
 
-### Claude Code plugin
+<details>
+<summary><strong>Claude Code plugin</strong></summary>
 
-Add this repository as a marketplace, then install the plugin:
+Add the marketplace, then install the plugin:
 
 ```text
 /plugin marketplace add superhero-tech/superhero-skills
@@ -67,36 +68,31 @@ Add this repository as a marketplace, then install the plugin:
 
 Plugin skills use namespaced commands such as `/product-discovery:interview-plan`.
 
-### Codex, Claude Code or OpenCode
+</details>
 
-Install the skills directly with the open `skills` CLI:
+<details>
+<summary><strong>Codex, Claude Code, OpenCode and other agents</strong></summary>
 
 ```bash
-# Codex
-npx skills@latest add superhero-tech/superhero-skills --agent codex
-
-# Claude Code
-npx skills@latest add superhero-tech/superhero-skills --agent claude-code
-
-# OpenCode
-npx skills@latest add superhero-tech/superhero-skills --agent opencode
+npx skills@latest add superhero-tech/superhero-skills
 ```
 
-The default installation is local to the current project. Add `--global` to use the skills across all your projects. Run the command without `--agent` if you want the installer to detect your agents and let you choose.
+Pick the skills you want and the coding agents to install them in. Add `--global` if you want the skills available across all your projects.
 
-If you use Claude Code, choose either the plugin or the direct installation. Installing both gives you two copies of the same skills.
+</details>
 
-### Manual installation
+<details>
+<summary><strong>For tinkerers</strong></summary>
 
-Clone the repository and copy the skill directories into the location your agent reads:
+Use the same installer with any supported agent:
 
-| Agent | Project | Personal |
-|---|---|---|
-| Codex | `.agents/skills/` | `~/.agents/skills/` |
-| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
-| OpenCode | `.opencode/skills/` | `~/.config/opencode/skills/` |
+```bash
+npx skills@latest add superhero-tech/superhero-skills
+```
 
-Each skill is an ordinary directory with a `SKILL.md` file. Read it, copy it and change the rules to fit your product and team.
+It installs ordinary files you can read and change. Pull updates when you want them with `npx skills update`.
+
+</details>
 
 Everything in this repository is released under the [MIT License](LICENSE). You can copy the skills, modify them, use them commercially and make them your own.
 
