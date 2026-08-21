@@ -54,13 +54,49 @@ We do not publish demo-only workflows or add skills to make the catalogue look b
 
 ## Install and make them yours
 
-When the first skills pass the publishing bar, install the ones you need with:
+When the first skills pass the publishing bar, choose how you want to install them.
 
-```bash
-npx skills@latest add superhero-tech/superhero-skills
+### Claude Code plugin
+
+Add this repository as a marketplace, then install the plugin:
+
+```text
+/plugin marketplace add superhero-tech/superhero-skills
+/plugin install product-discovery@superhero-plugins
 ```
 
-Each skill is an ordinary file. Read it, copy it and change the rules to fit your product and team.
+Plugin skills use namespaced commands such as `/product-discovery:interview-plan`.
+
+### Codex, Claude Code or OpenCode
+
+Install the skills directly with the open `skills` CLI:
+
+```bash
+# Codex
+npx skills@latest add superhero-tech/superhero-skills --agent codex
+
+# Claude Code
+npx skills@latest add superhero-tech/superhero-skills --agent claude-code
+
+# OpenCode
+npx skills@latest add superhero-tech/superhero-skills --agent opencode
+```
+
+The default installation is local to the current project. Add `--global` to use the skills across all your projects. Run the command without `--agent` if you want the installer to detect your agents and let you choose.
+
+If you use Claude Code, choose either the plugin or the direct installation. Installing both gives you two copies of the same skills.
+
+### Manual installation
+
+Clone the repository and copy the skill directories into the location your agent reads:
+
+| Agent | Project | Personal |
+|---|---|---|
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| OpenCode | `.opencode/skills/` | `~/.config/opencode/skills/` |
+
+Each skill is an ordinary directory with a `SKILL.md` file. Read it, copy it and change the rules to fit your product and team.
 
 Everything in this repository is released under the [MIT License](LICENSE). You can copy the skills, modify them, use them commercially and make them your own.
 
