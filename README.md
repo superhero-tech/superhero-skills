@@ -1,78 +1,73 @@
-# Superhero Skills
+# Skills for Product Builders
 
-Agent skills for Product Builders who actually ship.
+AI made it cheap to generate code, designs, research and copy. It did not make product judgment cheap. Point it at the wrong problem and it will help you ship the wrong thing faster.
 
-AI made it cheap to generate code, designs, research and copy. It did not make product judgment cheap. If you build the wrong thing, AI just helps you ship the wrong thing faster.
+Product judgment becomes the bottleneck. Someone still has to decide what is worth building, judge the output and take the work from the first signal to a shipped product. We call that person a Product Builder.
 
-These skills turn our **Combined Experience** into repeatable workflows an agent can run with you. They come from 32+ years of building global products at Booking.com, CD Projekt, Displate and GOG.com - including the things that worked, the things that failed and the patterns that kept repeating.
+Product Builders are deep in one discipline and capable across two or three adjacent ones. In practice, that can be a PM who prototypes instead of waiting for engineering, an engineer who runs interviews instead of waiting for research, or a designer who ships working code instead of handing off mockups. AI helps them close skill gaps without handing over judgment.
 
-Versions of these workflows have already been used and pressure-tested by **1,800 Product Builders** in [AI Product Heroes](https://aiproductheroes.pl). This is practice turned into software, not product theory rewritten as prompts.
+We built these skills from 32+ years of combined experience building global products at Booking.com, CD Projekt, Displate and GOG.com. Versions of these workflows have been used by 1,800 Product Builders in [AI Product Heroes](https://aiproductheroes.pl). If a workflow has not survived real product work, it stays out of this repository.
 
-## Part of the Product Builder OS
+## The Product Builder OS
 
-Skills are only half of the system.
+Superhero Skills are one half of a larger system.
 
 | Layer | What it does |
 |---|---|
-| [**Super Brain**](https://github.com/superhero-tech/super-brain) | Holds your context, knowledge, projects and decisions so every conversation does not start from zero. |
-| **Superhero Skills** | Turn proven product practices into focused, repeatable workflows your agent can execute with you. |
+| [Super Brain](https://github.com/superhero-tech/super-brain) | Keeps your context, knowledge, projects and decisions, so the agent does not start every conversation from zero. |
+| Superhero Skills | Give the agent focused, tested ways to work through product problems with you. |
 
-Together they form the **Product Builder OS**: memory that compounds, workflows that move the work forward and human judgment that stays in control.
+Together, these two layers make up the Product Builder OS.
 
-A Product Builder is deep in one discipline and capable across two or three adjacent ones. A PM who prototypes instead of waiting for engineering. An engineer who runs interviews instead of waiting for research. A designer who ships working code instead of handing off mockups. AI closes skill gaps; the Product Builder owns the problem end to end.
+## The Super Loop: product development for the AI era
 
-## Built around the Super Loop
-
-Our product development lifecycle for the AI era has six steps:
+We are building this skill set around a six-step loop:
 
 ```text
 Sense -> Frame -> Prototype -> Validate -> Ship -> Learn -> repeat
 ```
 
-Traditional teams move through that loop in quarters, with a handoff at every step. Product Builders can run it in days - sometimes hours - while keeping the decisions that matter with the human.
+| Step | What happens |
+|---|---|
+| Sense | Collect signals from customers, data and the market. |
+| Frame | Decide which problem is worth solving. |
+| Prototype | Make the idea real enough to learn from. |
+| Validate | Put it in front of real users, not synthetic ones. |
+| Ship | Release a small, reversible version. |
+| Learn | Use evidence to iterate, scale or kill it. |
 
-- **Sense** - collect signals from customers, data and the market.
-- **Frame** - decide which problem is actually worth solving.
-- **Prototype** - make the idea real enough to learn from.
-- **Validate** - put it in front of real users, not synthetic ones.
-- **Ship** - release a small, reversible version.
-- **Learn** - use evidence to iterate, scale or kill it.
+Traditional teams run this loop in quarters, slowed down by a handoff at every step. Product Builders can run it in days. AI accelerates all six steps, but it does not own Frame, Validate or the decision in Learn.
 
-We will keep adding skills across the entire loop. Not all at once. A skill lands here only when it is ready.
+We will add skills across the whole loop as they pass the publishing bar.
 
-## Our publishing bar
+## What earns a place here
 
-We do not publish skills because they looked clever in one chat. Every skill has to earn its place here.
+We publish a skill only after:
 
-- **Used on real product work.** No demo-only workflows.
-- **Pressure-tested with practitioners.** The method has to survive contact with people shipping actual products.
-- **Small and composable.** Take one skill without adopting a giant methodology.
-- **Opinionated where experience matters.** Hard rules beat vague best practices.
-- **Honest about failure modes.** A workflow should tell you where it breaks, not pretend to be universal.
-- **Human judgment stays in the loop.** AI generates and accelerates. You decide what matters, what is good and what happens next.
+- We have used it on real product work.
+- It has survived contact with practitioners shipping actual products.
+- It does one clear job and works with other skills.
+- Its hard rules, checks and failure modes are written down.
+- It keeps decisions with the human where judgment matters.
 
-The repository starts small by design. We add skills as they pass this bar, not to make the catalogue look bigger.
+We do not publish demo-only workflows or add skills to make the catalogue look bigger. A skill stays in the lab until it meets this bar.
 
-## Installation
+## Install and make them yours
 
-Once the first skills are published, install the ones you need with:
+When the first skills pass the publishing bar, install the ones you need with:
 
 ```bash
 npx skills@latest add superhero-tech/superhero-skills
 ```
 
-The skills are ordinary files. Read them. Change them. Remove rules that do not fit your context and add the ones your team learned the hard way.
+Each skill is an ordinary file. Read it, copy it and change the rules to fit your product and team.
 
-## MIT means you can make them yours
+Everything in this repository is released under the [MIT License](LICENSE). You can copy the skills, modify them, use them commercially and make them your own.
 
-Everything in this repository is released under the [MIT License](LICENSE).
+## Who's behind this
 
-Take the skills. Fork them. Hack them. Rewrite them for your company, your product and your way of working. Use them commercially. Build better versions. If our defaults do not fit your context, change them.
+We are Wojtek Strzałkowski and Piotr Kacała, founders of [Superhero.tech](https://superhero.tech) and creators of [AI Product Heroes](https://aiproductheroes.pl).
 
-## Who is behind this
+We build products and teach Product Builders. We are skeptical of AI hype because we use these tools every day and have to live with their output. We judge each skill by whether it helps someone understand the problem, make a sharper decision or ship something customers need.
 
-We are Wojtek Strzalkowski and Piotr Kacala, founders of [Superhero.tech](https://superhero.tech) and creators of [AI Product Heroes](https://aiproductheroes.pl).
-
-We build products, teach Product Builders and keep turning what survives real work into tools others can use. We are skeptical of AI hype because we use this stuff every day. The standard is simple: does it help someone understand the problem better, make a sharper decision or ship something customers actually need?
-
-If this is your kind of work, join the [Superhero.tech newsletter](https://newsletter.superhero.tech). We share what works, what fails and what we are adding to the Product Builder OS next.
+The [Superhero.tech newsletter](https://newsletter.superhero.tech) is where we share what we are testing, what failed and what gets added to the Product Builder OS next.
