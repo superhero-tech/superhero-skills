@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build a Figma Library"
+  short_description: "From product docs to reusable Figma libraries"
+  default_prompt: "Use $build-figma-library to build a Figma token and component library from my sources and verify its use within the intended scope."

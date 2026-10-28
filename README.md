@@ -49,6 +49,7 @@ The skills need no separate API keys, personal knowledge vault or private develo
 - For data analysis, pandas, matplotlib and seaborn; DuckDB for SQL, and readers such as openpyxl or pyarrow when the input format needs them. The plugin provides instructions and scripts, not a Python distribution or these libraries.
 - Live web search and readable original sources for `desk-research` and `customer-research`.
 - Browser support for automatic HTML previews. If preview is blocked or unavailable, saved HTML and Mermaid remain available through file links. Visual verification is then reported as unavailable.
+- For `build-figma-library`, a connected Figma account and the official Figma plugin with the companion skills named in its instructions. Publishing and use across files depend on the account's Figma plan and file permissions.
 
 Miro and FigJam are optional integrations. Local discovery does not require an external board.
 
@@ -93,6 +94,7 @@ Before each stage, Supersprint asks what you want to add and waits for your repl
 | Skill | What it does |
 |---|---|
 | `super-landing-page` | Builds a distinctive landing page through a guided interview, independent art direction, a detailed execution prompt, and visual iteration. |
+| `build-figma-library` | Turns product documentation, code or existing UI into a native Figma token and component library, with composition examples, usable properties, and verified handoff within or across files. |
 
 The source folders are `plugins/product-discovery/skills/product-discovery/` and `plugins/product-discovery/skills/product-design/`. Both are explicitly declared in the plugin manifests.
 
@@ -146,6 +148,7 @@ Invoke a skill explicitly, for example:
 /product-discovery:interview-simulator
 /product-discovery:data-analysis
 /product-discovery:super-landing-page
+/product-discovery:build-figma-library
 ```
 
 ### Codex
@@ -157,7 +160,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.8.0` adds `interview-simulator` for practicing customer interviews with a fictional persona and receiving feedback; check that your installed plugin has updated to this version or later to use it. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.9.0` adds `build-figma-library` for building reusable Figma token and component libraries; check that your installed plugin has updated to this version or later to use it. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
@@ -172,6 +175,7 @@ $product-discovery:interview-plan
 $product-discovery:interview-simulator
 $product-discovery:data-analysis
 $product-discovery:super-landing-page
+$product-discovery:build-figma-library
 ```
 
 ### Install individual skills
