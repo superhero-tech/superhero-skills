@@ -61,6 +61,7 @@ These skills help you understand customers, examine product and market evidence,
 |---|---|
 | `supersentence` | Clarifies a business idea through a compact interview and market research, ending with a super sentence, an evidence-based verdict and a next test. |
 | `supersprint` | Guides a discovery cycle with the included specialists, saved decisions and a growing HTML/Mermaid tree. |
+| `pres-prioritization` | Compares opportunities using Pain, Reach, Evidence and Strategic fit, with sourced scores and human review. |
 | `experiment-design` | Turns selected ideas into concrete prototypes, demand tests or commitment tests, with hypotheses and observable changes. |
 | `customer-research` | Finds public customer opinions and delivers a short report, sourced CSV, and HTML with grouped quotes and mention counts. |
 | `affinity-mapping` | Turns interview transcripts into evidenced themes, opportunities and an interactive evidence map. |
@@ -76,6 +77,8 @@ These skills help you understand customers, examine product and market evidence,
 ```text
 Goal -> Signals -> Opportunities -> Ideas -> Experiments -> Observed results -> Decisions
 ```
+
+At the Opportunities stage, Supersprint uses the included `pres-prioritization` skill before you choose a focus. It sums supported Pain, Reach, Evidence and Strategic fit scores, keeps missing evidence visible, and asks you to review the comparison and select an opportunity. The ranking does not select a winner automatically.
 
 The tree grows as you work, with an HTML view, a Mermaid export, highlighted selections and links to evidence. Product context and the current outcome stay visible above the tree, even before any branches exist. The context is saved in the project and mirrored to a native Canvas when the host supports that working surface.
 
@@ -140,6 +143,7 @@ Invoke a skill explicitly, for example:
 ```text
 /product-discovery:supersentence
 /product-discovery:supersprint
+/product-discovery:pres-prioritization
 /product-discovery:experiment-design
 /product-discovery:customer-research
 /product-discovery:affinity-mapping
@@ -160,13 +164,14 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.9.0` adds `build-figma-library` for building reusable Figma token and component libraries; check that your installed plugin has updated to this version or later to use it. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.10.0` adds `pres-prioritization` and uses it for opportunity selection in Supersprint; check that your installed plugin has updated to this version or later to use it. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
 ```text
 $product-discovery:supersentence
 $product-discovery:supersprint
+$product-discovery:pres-prioritization
 $product-discovery:experiment-design
 $product-discovery:customer-research
 $product-discovery:affinity-mapping

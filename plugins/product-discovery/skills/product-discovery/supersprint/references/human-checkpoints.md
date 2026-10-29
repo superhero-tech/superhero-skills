@@ -30,7 +30,7 @@ When the host exposes a writable native Canvas and it is the intended working su
 |---|---|---|
 | Goal | Product priority, desired behavior/outcome, constraints | Working goal, measurement meaning and unknowns |
 | Signals | Files, observations, questions, gaps in coverage | Findings, limits and whether evidence is sufficient to continue |
-| Opportunities | Needs noticed by the human or missing from the synthesis | Candidate needs and the selected focus |
+| Opportunities | Needs noticed by the human or missing from the synthesis | Candidate needs, the PRES scorecard and the selected focus |
 | Ideas | Existing approaches, constraints and ideas | Concrete mechanisms and which ideas to explore |
 | Experiments | Main uncertainty, participant access, practical constraints | Hypotheses, methods, observable changes and next test |
 | Results | Actual observations and execution details | Interpretation and limitations; missing results stay missing |

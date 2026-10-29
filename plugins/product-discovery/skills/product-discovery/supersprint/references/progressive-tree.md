@@ -82,3 +82,5 @@ The main axis starts with the goal. Signals sit below it, attached as evidence. 
 Do not prefill later stages or simulate user/customer results. A source quote supports a rationale, not proof that a proposed solution works. Preserve provisional goals, pending synthesis reviews, unstarted experiments and missing results visibly. Board synchronization remains optional and capability-dependent.
 
 For other interface languages, also localize the product-context and checkpoint labels from the bundled renderer UI through `tree_ui`.
+
+When prioritizing opportunities with PRES, follow `references/opportunity-prioritization.md`. Keep scores and completeness in opportunity metadata, a compact summary and the linked scorecard, not a separate layer. A ranking or scorecard approval does not change selection frames without the actual human focus choice.

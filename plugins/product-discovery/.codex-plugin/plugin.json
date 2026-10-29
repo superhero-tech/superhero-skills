@@ -1,7 +1,7 @@
 {
   "name": "product-discovery",
-  "version": "1.9.0",
-  "description": "Product discovery and prototyping workflows: Supersentence for business ideas, Supersprint with a growing discovery tree, customer research, affinity mapping, desk research, interview planning and simulation, data analysis, experiment design, art-directed landing pages, and reusable Figma libraries.",
+  "version": "1.10.0",
+  "description": "Product discovery and prototyping workflows: Supersentence for business ideas, Supersprint with a growing discovery tree, customer research, affinity mapping, desk research, interview planning and simulation, data analysis, PRES opportunity prioritization, experiment design, art-directed landing pages, and reusable Figma libraries.",
   "author": {
     "name": "Superhero.tech",
     "email": "superhero@superhero.tech",
@@ -23,7 +23,8 @@
     "supersentence",
     "interview-simulator",
     "figma",
-    "design-system"
+    "design-system",
+    "pres"
   ],
   "skills": [
     "./skills/product-discovery/",
@@ -32,7 +33,7 @@
   "interface": {
     "displayName": "Superhero Skills",
     "shortDescription": "Product Discovery and Design",
-    "longDescription": "Supersentence helps clarify a business idea through a compact interview and market research, ending with a super sentence, an honest verdict and a next test. Superhero Skills combines discovery and design in one plugin. Supersprint guides a saved discovery cycle with a growing HTML/Mermaid tree, using the included public customer research, affinity mapping, desk research, interview planning, data analysis and experiment-design skills. Product Design builds distinctive landing pages through a guided brief, independent art direction and visual iteration. Interview Simulator lets you practice customer interviews with a fictional persona and receive feedback on your interviewing skills. Build Figma Library turns product documentation, code or existing UI into native tokens and components, with composition examples and checks for reuse across files.",
+    "longDescription": "Supersentence helps clarify a business idea through a compact interview and market research, ending with a super sentence, an honest verdict and a next test. Superhero Skills combines discovery and design in one plugin. Supersprint guides a saved discovery cycle with a growing HTML/Mermaid tree, using the included public customer research, affinity mapping, desk research, interview planning, data analysis and experiment-design skills. Product Design builds distinctive landing pages through a guided brief, independent art direction and visual iteration. Interview Simulator lets you practice customer interviews with a fictional persona and receive feedback on your interviewing skills. Build Figma Library turns product documentation, code or existing UI into native tokens and components, with composition examples and checks for reuse across files. PRES Prioritization compares opportunities with sourced Pain, Reach, Evidence and Strategic fit assessments and human review; Supersprint uses it when choosing an opportunity.",
     "developerName": "Superhero.tech",
     "category": "Productivity",
     "capabilities": [

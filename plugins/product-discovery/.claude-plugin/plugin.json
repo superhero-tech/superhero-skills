@@ -1,7 +1,7 @@
 {
   "name": "product-discovery",
-  "version": "1.9.0",
-  "description": "Product discovery and prototyping workflows: Supersentence for business ideas, Supersprint with a growing discovery tree, customer research, affinity mapping, desk research, interview planning and simulation, data analysis, experiment design, art-directed landing pages, and reusable Figma libraries.",
+  "version": "1.10.0",
+  "description": "Product discovery and prototyping workflows: Supersentence for business ideas, Supersprint with a growing discovery tree, customer research, affinity mapping, desk research, interview planning and simulation, data analysis, PRES opportunity prioritization, experiment design, art-directed landing pages, and reusable Figma libraries.",
   "author": {
     "name": "Superhero.tech",
     "email": "superhero@superhero.tech",
@@ -23,7 +23,8 @@
     "supersentence",
     "interview-simulator",
     "figma",
-    "design-system"
+    "design-system",
+    "pres"
   ],
   "displayName": "Superhero Skills",
   "skills": [

@@ -27,7 +27,7 @@ The router owns the cycle state and material decision history. Specialists own t
 
 1. **Goal:** identify whose behavior should change, how it relates to a business priority and how it could be measured. Reuse a suitable brief outcome. If missing, first ask the human what outcome they want and wait; help define a working goal after their response. When evidence is insufficient, keep an explicit working direction or research question for review. Unknown baseline, target or deadline stays unknown. A measurement window is not a delivery deadline.
 2. **Signals:** distinguish available inputs, completed analysis and enough evidence for the next decision. Reuse current relevant analyses. Name gaps, contradictions, source versions and limits. Missing signal categories do not require filling every folder. Suggest the smallest research that can change the decision; allow consciously proceeding with stated uncertainty.
-3. **Opportunities:** formulate user needs/problems in natural user language. Compare importance, plausible goal contribution and evidence. Recommend a focus; record the user's selection or existing delegation. Keep alternatives and rationale. A need is not a proposed feature.
+3. **Opportunities:** formulate user needs/problems in natural user language, then follow `references/opportunity-prioritization.md` and use `pres-prioritization` before selecting a focus. Present supported P/R/E/S scores, sums, gaps and recommendations for human review. Record the actual selection or explicit delegation; a scorecard does not select the highest total automatically. Keep alternatives and rationale. A need is not a proposed feature.
 4. **Ideas:** compare distinct approaches by fit, potential and constraints. Describe the concrete mechanism. Keep user-selected ideas; do not impose a fixed number or reopen an accepted gate without a material reason.
 5. **Experiments:** use `experiment-design` on the selected ideas and relevant evidence. The assumption belongs inside the experiment's hypothesis, not a separate tree layer, stage or duplicated list. Explain hypothesis, concrete method/action and observable change. Preserve the portfolio; recommend a next test without selecting it for the user. Expected change is directional by default; the human judges sufficiency unless numerical criteria were supplied or requested.
 6. **Results:** register actual observations, scope, execution and review status. A plan, role-play or synthetic case is not customer evidence. Read results in the context of what the method tests; clicks, use, payment and repeat purchase answer different questions.
@@ -43,7 +43,7 @@ Save `context/product.md` and `state.product_context` as soon as the human ident
 
 ## Specialist routing
 
-The plugin includes all six specialists listed below. Discover them by skill name in the host, including its plugin namespace when required, and read the relevant specialist before using it. Resolve bundled resources relative to each skill directory; no personal vault or development-repository path is required. Pass the agreed question, decision, segment, selected input paths, constraints, destination and return condition. Include the requirement for natural, descriptive titles and self-contained explanations in each specialist handoff. Specialists clarify their canonical artifacts before the router shortens them; the router checks that the concrete meaning survives. This language quality belongs to Supersprint and its specialists and must not depend on a separate editing skill. Use only the route that addresses an actual gap:
+The plugin includes all seven specialists listed below. Discover them by skill name in the host, including its plugin namespace when required, and read the relevant specialist before using it. Resolve bundled resources relative to each skill directory; no personal vault or development-repository path is required. Pass the agreed question, decision, segment, selected input paths, constraints, destination and return condition. Include the requirement for natural, descriptive titles and self-contained explanations in each specialist handoff. Specialists clarify their canonical artifacts before the router shortens them; the router checks that the concrete meaning survives. This language quality belongs to Supersprint and its specialists and must not depend on a separate editing skill. Use only the route that addresses an actual gap:
 
 | Gap | Specialist |
 |---|---|
@@ -52,6 +52,7 @@ The plugin includes all six specialists listed below. Discover them by skill nam
 | New conversations need a screener and guide | `interview-plan` |
 | Public accounts of customer experience | `customer-research` |
 | Competitive, secondary or research evidence | `desk-research` |
+| Comparing opportunities and selecting a focus with PRES | `pres-prioritization` |
 | Concrete tests for selected ideas | `experiment-design` |
 
 If a specialist is unavailable, report the missing capability and choose a feasible scoped fallback. Do not pretend it ran. Separate agents are optional only when available and authorized; routing normally means following the specialist within this conversation.

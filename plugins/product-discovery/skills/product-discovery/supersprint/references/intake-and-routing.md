@@ -32,3 +32,5 @@ Use `signals/<kind>/raw/` and `signals/<kind>/analysis/<run>/` when new source o
 Pass a specialist the actual question, decision, segment/population, time scope, selected inputs or search scope, known constraints, output directory and expected return. Register its artifacts and completion/review statuses in the cycle. Missing required specialist input leads to a named gap and a concrete way to gather it, not invented evidence.
 
 Keep user choices and hypotheses separate from verified observations. Brief metrics can be stated but unverified; source definitions and computed values may later challenge them. A repeat-measurement window is distinct from an achievement deadline.
+
+For opportunity selection, read `references/opportunity-prioritization.md` and route the candidate needs plus their goal/evidence to the bundled `pres-prioritization` skill. Reuse the current human input checkpoint and preserve existing accepted choices.
