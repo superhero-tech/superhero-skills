@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dokumentacja komponentów design systemu"
+  short_description: "Dokumentacja komponentów z wizualnych materiałów strony"
+  default_prompt: "Użyj $document-design-system-components, aby na podstawie dostarczonej dokumentacji wizualnej istniejącego projektu strony przygotować dokumentację komponentów dla designerów i pokazać pełny wynik do oceny."

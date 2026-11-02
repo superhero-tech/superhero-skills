@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Direction Research"
+  short_description: "Web research, HTML moodboards and direction studies"
+  default_prompt: "Use $visual-direction-research to find existing websites that fit my brief, create a comparative HTML moodboard, and deepen one visual direction after I choose a reference or a mix of elements."

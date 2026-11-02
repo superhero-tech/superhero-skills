@@ -48,6 +48,8 @@ The skills need no separate API keys, personal knowledge vault or private develo
 - Python 3 for the bundled tree, affinity-map and recommendation renderers; these use only the standard library. The optional customer-opinion counter also uses standard Python.
 - For data analysis, pandas, matplotlib and seaborn; DuckDB for SQL, and readers such as openpyxl or pyarrow when the input format needs them. The plugin provides instructions and scripts, not a Python distribution or these libraries.
 - Live web search and readable original sources for `desk-research` and `customer-research`.
+- For `visual-direction-research`, live web search, browser access to inspect rendered websites, and screenshot capture. Optional PDF export needs a PDF-capable workflow.
+- For `document-design-system-components`, visual source materials such as screenshots, mockups, PDF or HTML specifications, and a host that can inspect their images. Figma access is not required.
 - Browser support for automatic HTML previews. If preview is blocked or unavailable, saved HTML and Mermaid remain available through file links. Visual verification is then reported as unavailable.
 - For `build-figma-library`, a connected Figma account and the official Figma plugin with the companion skills named in its instructions. Publishing and use across files depend on the account's Figma plan and file permissions.
 
@@ -97,7 +99,15 @@ Before each stage, Supersprint asks what you want to add and waits for your repl
 | Skill | What it does |
 |---|---|
 | `super-landing-page` | Builds a distinctive landing page through a guided interview, independent art direction, a detailed execution prompt, and visual iteration. |
+| `visual-direction-research` | Researches existing websites, creates a comparative HTML moodboard with screenshots and evidence, then develops a detailed direction study after you choose references or ingredients. |
+| `document-design-system-components` | Turns visual documentation of an existing interface into component documentation for designers: anatomy, variants, properties, tokens, spacing, typography, usage and accessibility. After review, it can prepare an optional agent implementation package with your approval. |
 | `build-figma-library` | Turns product documentation, code or existing UI into a native Figma token and component library, with composition examples, usable properties, and verified handoff within or across files. |
+
+`visual-direction-research` starts from a product brief and real websites. It compares visual mechanisms, information density and relevant screen types, and keeps measured values, visual estimates and proposed adaptations distinct. You receive a complete HTML moodboard, choose a direction or mix of ingredients, and then receive a deeper HTML study. It does not automatically implement a site or create a library.
+
+`document-design-system-components` starts from visual materials for an existing design. It documents the observed component families and states, marks estimates and missing evidence, and presents the full result for review without reading from or writing to Figma. Once you approve the documentation, it offers an optional package for agents: `design.md`, reusable styles or components, and working usage examples. Its bundled instructions and templates are in Polish; you can request another output language.
+
+`build-figma-library` handles the Figma stage when you need native, editable assets. It reconstructs the documented system as Variables, styles and components, checks variant properties and composition examples, and verifies that another agent can reuse the library. Use it with the official Figma plugin and the companion skills listed in its instructions.
 
 The source folders are `plugins/product-discovery/skills/product-discovery/` and `plugins/product-discovery/skills/product-design/`. Both are explicitly declared in the plugin manifests.
 
@@ -152,6 +162,8 @@ Invoke a skill explicitly, for example:
 /product-discovery:interview-simulator
 /product-discovery:data-analysis
 /product-discovery:super-landing-page
+/product-discovery:visual-direction-research
+/product-discovery:document-design-system-components
 /product-discovery:build-figma-library
 ```
 
@@ -164,7 +176,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.10.0` adds `pres-prioritization` and uses it for opportunity selection in Supersprint; check that your installed plugin has updated to this version or later to use it. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
@@ -180,6 +192,8 @@ $product-discovery:interview-plan
 $product-discovery:interview-simulator
 $product-discovery:data-analysis
 $product-discovery:super-landing-page
+$product-discovery:visual-direction-research
+$product-discovery:document-design-system-components
 $product-discovery:build-figma-library
 ```
 
