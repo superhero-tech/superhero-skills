@@ -99,6 +99,7 @@ Before each stage, Supersprint asks what you want to add and waits for your repl
 | Skill | What it does |
 |---|---|
 | `super-landing-page` | Builds a distinctive landing page through a guided interview, independent art direction, a detailed execution prompt, and visual iteration. |
+| `extract-design-md` | Extracts measured styles and visual evidence from websites into a `DESIGN.md` for matching prototypes. |
 | `poster-people-ui` | Builds screens with crisp black outlines, paper surfaces, pink accents, and hand-drawn people. |
 | `visual-direction-research` | Researches existing websites, creates a comparative HTML moodboard with screenshots and evidence, then develops a detailed direction study after you choose references or ingredients. |
 | `document-design-system-components` | Turns visual documentation of an existing interface into component documentation for designers: anatomy, variants, properties, tokens, spacing, typography, usage and accessibility. After review, it can prepare an optional agent implementation package with your approval. |
