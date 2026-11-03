@@ -1,0 +1,484 @@
+{
+  "study_date": "2026-11-02",
+  "basis": "Selected Gumroad poster-like UI language plus Work With Indies character illustration language. Exact implementation defaults remain proposed adaptations.",
+  "screens": [
+    {
+      "url": "https://gumroad.com/",
+      "captured_at": "2026-11-02T12:19:26.812607+00:00",
+      "page_type": "homepage",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": null,
+      "state": "default",
+      "limitations": [],
+      "id": "S01",
+      "source_screen_id": "gum-home",
+      "file": "screenshots/s01-gum-home.jpg",
+      "title": "Gumroad entry",
+      "interpretation": "Poster-scale message, paper and pink artwork; not a result layout."
+    },
+    {
+      "url": "https://gumroad.com/discover",
+      "captured_at": "2026-11-02T12:20:21.362022+00:00",
+      "page_type": "marketplace listing",
+      "frame": "middle: product grid",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": null,
+      "state": "default",
+      "limitations": [
+        "Scroll offset was not recorded for this earlier capture."
+      ],
+      "id": "S02",
+      "source_screen_id": "gum-list-grid",
+      "file": "screenshots/s02-gum-list-grid.jpg",
+      "title": "Gumroad results",
+      "interpretation": "Fine outlines, separated price, three-column desktop grid; adapt to text rows for jobs."
+    },
+    {
+      "url": "https://daribodrawing.gumroad.com/l/all_practice_cards",
+      "captured_at": "2026-11-02T12:44:31.909Z",
+      "page_type": "product detail",
+      "frame": "middle: title and decision panel",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 576
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S03",
+      "source_screen_id": "b-product-desktop",
+      "file": "screenshots/s03-b-product-desktop.jpg",
+      "title": "Gumroad detail",
+      "interpretation": "Long reading content with a decision panel, price label and pink action."
+    },
+    {
+      "url": "https://daribodrawing.gumroad.com/",
+      "captured_at": "2026-11-02T12:55:47.910Z",
+      "page_type": "creator storefront",
+      "frame": "middle: complete product cards",
+      "viewport_css_px": {
+        "width": 1011,
+        "height": 1177
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 471
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S04",
+      "source_screen_id": "b-creator-cards",
+      "file": "screenshots/s04-b-creator-cards.jpg",
+      "title": "Gumroad storefront cards",
+      "interpretation": "Complete card structure at 1011 × 1177; first title measured 16px/22px."
+    },
+    {
+      "url": "https://www.workwithindies.com/",
+      "captured_at": "2026-11-02T12:44:32.119Z",
+      "page_type": "homepage",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S05",
+      "source_screen_id": "a-hero-desktop",
+      "file": "screenshots/s05-a-hero-desktop.jpg",
+      "title": "Work With Indies people",
+      "interpretation": "Character language: organic contours, elastic silhouettes, flat fills, active tools."
+    },
+    {
+      "url": "https://www.workwithindies.com/careers/alibi-games-head-of-marketing",
+      "captured_at": "2026-11-02T12:21:32.921Z",
+      "page_type": "job detail",
+      "frame": "top",
+      "viewport_css_px": {
+        "height": 720,
+        "width": 1280
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S06",
+      "source_screen_id": "wwi-detail",
+      "file": "screenshots/s06-wwi-detail.jpg",
+      "title": "Work With Indies role detail",
+      "interpretation": "Calm title/facts/description hierarchy; the Poppins font is evidence, not a required type choice."
+    },
+    {
+      "url": "https://www.workwithindies.com/work-with/alibi-games",
+      "captured_at": "2026-11-02T12:43:20.790Z",
+      "page_type": "company profile",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S07",
+      "source_screen_id": "a-company",
+      "file": "screenshots/s07-a-company.jpg",
+      "title": "Work With Indies company",
+      "interpretation": "Employer identity plus reused text-first role row."
+    },
+    {
+      "url": "https://www.workwithindies.com/",
+      "captured_at": "2026-11-02T12:44:51.713Z",
+      "page_type": "job listing",
+      "frame": "middle: repeated rows",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 1097
+      },
+      "state": "narrow viewport",
+      "limitations": [],
+      "id": "S08",
+      "source_screen_id": "a-list-mobile",
+      "file": "screenshots/s08-a-list-mobile.jpg",
+      "title": "Work With Indies narrow results",
+      "interpretation": "One column, small logo and wrapped titles; no large job cover image."
+    },
+    {
+      "url": "https://gumroad.com/discover",
+      "captured_at": "2026-11-02T12:45:30.304Z",
+      "page_type": "marketplace listing",
+      "frame": "middle: filters and products",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 844
+      },
+      "state": "narrow viewport",
+      "limitations": [],
+      "id": "S09",
+      "source_screen_id": "b-list-mobile-ready",
+      "file": "screenshots/s09-b-list-mobile-ready.jpg",
+      "title": "Gumroad narrow results",
+      "interpretation": "Two-column product cards and tall expanded filter block; a density trade-off, not the recommended job layout."
+    },
+    {
+      "url": "https://daribodrawing.gumroad.com/l/all_practice_cards",
+      "captured_at": "2026-11-02T12:46:03.982Z",
+      "page_type": "product detail",
+      "frame": "middle: title and main purchase action visible; bottom bar not expanded",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 169
+      },
+      "state": "narrow viewport",
+      "limitations": [],
+      "id": "S10",
+      "source_screen_id": "b-detail-mobile-title",
+      "file": "screenshots/s10-b-detail-mobile-title.jpg",
+      "title": "Gumroad narrow detail title",
+      "interpretation": "Full long title and main purchase action; commerce labels are not recruitment requirements."
+    },
+    {
+      "url": "https://daribodrawing.gumroad.com/l/all_practice_cards",
+      "captured_at": "2026-11-02T12:45:39.992Z",
+      "page_type": "product detail",
+      "frame": "middle: summary and bundle contents; bottom price / purchase bar visible",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 591
+      },
+      "state": "narrow viewport",
+      "limitations": [],
+      "id": "S11",
+      "source_screen_id": "b-detail-mobile-ready",
+      "file": "screenshots/s11-b-detail-mobile-ready.jpg",
+      "title": "Gumroad narrow detail bar",
+      "interpretation": "Bottom price/action bar when the main action is above the viewport; inspect actual visibility in a new flow."
+    },
+    {
+      "url": "https://www.workwithindies.com/",
+      "captured_at": "2026-11-02T12:45:06.117Z",
+      "page_type": "homepage",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "narrow viewport",
+      "limitations": [],
+      "id": "S12",
+      "source_screen_id": "a-home-mobile-ready",
+      "file": "screenshots/s12-a-home-mobile-ready.jpg",
+      "title": "Work With Indies narrow entry",
+      "interpretation": "Original scene hidden in this sampled narrow view; not a rule requiring us to hide all character art."
+    },
+    {
+      "url": "https://www.workwithindies.com/post-a-job",
+      "captured_at": "2026-11-02T12:43:29.994Z",
+      "page_type": "employer form",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "read only; no fields filled",
+      "limitations": [
+        "Third-party Typeform introduction only. No field filled, next step or payment submitted. Black area at bottom is the observed embedded-form rendering."
+      ],
+      "id": "S13",
+      "source_screen_id": "a-post-job",
+      "file": "screenshots/s13-a-post-job.jpg",
+      "title": "Work With Indies form introduction",
+      "interpretation": "Third-party Typeform exception. Read-only introduction; no submission. Do not copy its separate visual system."
+    },
+    {
+      "url": "https://daribodrawing.gumroad.com/",
+      "captured_at": "2026-11-02T12:44:10.182Z",
+      "page_type": "creator storefront",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S14",
+      "source_screen_id": "b-creator",
+      "file": "screenshots/s14-b-creator.jpg",
+      "title": "Gumroad wider storefront",
+      "interpretation": "Earlier 1280 × 720 view; first title measured 20px/28px. Top frame does not show complete cards."
+    },
+    {
+      "url": "https://gumroad.com/drawing-and-painting",
+      "captured_at": "2026-11-02T12:43:29.895Z",
+      "page_type": "category listing",
+      "frame": "top",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_css_px": {
+        "x": 0,
+        "y": 0
+      },
+      "state": "default",
+      "limitations": [],
+      "id": "S15",
+      "source_screen_id": "b-category",
+      "file": "screenshots/s15-b-category.jpg",
+      "title": "Gumroad category",
+      "interpretation": "Category header, subcategory navigation and featured content; blue is an observed source variant, not an extra required primary action color."
+    }
+  ],
+  "crops": [
+    {
+      "id": "C01",
+      "file": "screenshots/c01-people-detail.jpg",
+      "parent_screen_id": "S05",
+      "bounds_image_px": [
+        640,
+        150,
+        1185,
+        650
+      ],
+      "interpretation": "Illustration crop of S05, not a distinct screen or production asset."
+    }
+  ],
+  "measurements": [
+    {
+      "state": "default",
+      "measured_at": "2026-11-02T12:44:31.600Z",
+      "values": {
+        "background": "rgb(255, 144, 232)",
+        "border": "1px solid rgb(0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "element": "product main purchase link",
+        "font": "\"ABC Favorit\", \"ABC Favorit\", sans-serif",
+        "lineHeight": "22px",
+        "padding": "12px 16px",
+        "radius": "4px",
+        "size": "16px"
+      },
+      "screen_id": "S03"
+    },
+    {
+      "state": "default",
+      "viewport_css_px": {
+        "width": 1280,
+        "height": 720
+      },
+      "element": "first article and descendant h4",
+      "values": {
+        "border": "1px solid rgb(0, 0, 0)",
+        "borderRadius": "4px",
+        "boxShadow": "none",
+        "background": "rgb(255, 255, 255)",
+        "titleFont": "\"ABC Favorit\", \"ABC Favorit\", sans-serif",
+        "titleSize": "20px",
+        "titleLineHeight": "28px",
+        "titleWeight": "400"
+      },
+      "screen_id": "S14"
+    },
+    {
+      "state": "main CTA above viewport; bottom purchase bar shown",
+      "viewport_css_px": {
+        "width": 390,
+        "height": 844
+      },
+      "element": "region Product information bar",
+      "values": {
+        "position": "fixed",
+        "bottom": "0px"
+      },
+      "limitations": [
+        "The bar changes its visible content as the main purchase CTA enters the viewport. Only the inspected scroll positions are established."
+      ],
+      "screen_id": "S11"
+    },
+    {
+      "state": "default",
+      "viewport_css_px": {
+        "width": 1011,
+        "height": 1177
+      },
+      "element": "first article and descendant h4",
+      "measured_at": "2026-11-02T12:55:47.929Z",
+      "values": {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(0, 0, 0)",
+        "borderRadius": "4px",
+        "boxShadow": "none",
+        "titleFont": "\"ABC Favorit\", \"ABC Favorit\", sans-serif",
+        "titleLineHeight": "22px",
+        "titleSize": "16px",
+        "titleWeight": "400"
+      },
+      "screen_id": "S04"
+    },
+    {
+      "measured_at": "2026-11-02T12:22:10.914Z",
+      "values": [
+        {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "border": "0px none rgb(51, 51, 51)",
+          "borderRadius": "0px",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Arial, sans-serif",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "lineHeight": "20px",
+          "selector": "body"
+        },
+        {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(51, 51, 51)",
+          "borderRadius": "0px",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Poppins, sans-serif",
+          "fontSize": "36px",
+          "fontWeight": "800",
+          "lineHeight": "44px",
+          "selector": "h1"
+        },
+        {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(51, 51, 51)",
+          "borderRadius": "0px",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Poppins, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "lineHeight": "24px",
+          "selector": "p"
+        }
+      ],
+      "screen_id": "S06"
+    },
+    {
+      "measured_at": "2026-11-02T12:22:10.924Z",
+      "values": [
+        {
+          "backgroundColor": "rgb(244, 244, 240)",
+          "border": "0px solid rgb(0, 0, 0)",
+          "borderRadius": "0px",
+          "color": "rgb(0, 0, 0)",
+          "fontFamily": "\"ABC Favorit\", Avenir, Montserrat, Corbel, \"URW Gothic\", source-sans-pro, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22px",
+          "selector": "body"
+        },
+        {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "border": "0px solid rgb(0, 0, 0)",
+          "borderRadius": "0px",
+          "color": "rgb(0, 0, 0)",
+          "fontFamily": "\"ABC Favorit\", Avenir, Montserrat, Corbel, \"URW Gothic\", source-sans-pro, sans-serif",
+          "fontSize": "20px",
+          "fontWeight": "400",
+          "lineHeight": "26px",
+          "selector": "h2"
+        },
+        {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgba(0, 0, 0, 0.5)",
+          "borderRadius": "0px",
+          "color": "rgba(0, 0, 0, 0.5)",
+          "fontFamily": "\"ABC Favorit\", Avenir, Montserrat, Corbel, \"URW Gothic\", source-sans-pro, sans-serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "lineHeight": "22px",
+          "selector": "button"
+        }
+      ],
+      "screen_id": "S02"
+    }
+  ]
+}

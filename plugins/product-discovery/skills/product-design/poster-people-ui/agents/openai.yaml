@@ -1,0 +1,4 @@
+interface:
+  display_name: "Poster People UI"
+  short_description: "Build poster-style UI with expressive drawn people"
+  default_prompt: "Use $poster-people-ui to build the requested screen with poster-style cards and expressive hand-drawn people."
