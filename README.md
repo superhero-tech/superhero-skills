@@ -46,6 +46,7 @@ The skills need no separate API keys, personal knowledge vault or private develo
 
 - A host that can read skills and save files in your chosen project.
 - Python 3 for the bundled tree, affinity-map and recommendation renderers; these use only the standard library. The optional customer-opinion counter also uses standard Python.
+- For `code-event-storming`, access to the project's source code and Python 3.9 or later. The renderer uses the standard library, and the generated board works offline in a browser with JavaScript enabled.
 - For data analysis, pandas, matplotlib and seaborn; DuckDB for SQL, and readers such as openpyxl or pyarrow when the input format needs them. The plugin provides instructions and scripts, not a Python distribution or these libraries.
 - Live web search and readable original sources for `desk-research` and `customer-research`.
 - For `visual-direction-research`, live web search, browser access to inspect rendered websites, and screenshot capture. Optional PDF export needs a PDF-capable workflow.
@@ -71,6 +72,7 @@ These skills help you understand customers, examine product and market evidence,
 | `interview-plan` | Creates research questions, a screener, an interview guide and a note-taking format. |
 | `interview-simulator` | Lets you practice customer interviews with a fictional persona, then evaluates your questions, technique and mistakes. |
 | `data-analysis` | Guides analysis from a business question through data checks, exploration and recommendations. |
+| `code-event-storming` | Reconstructs business processes from an existing codebase in an interactive EventStorming board with source excerpts and open questions. |
 
 #### Supersprint: from signals to a decision
 
@@ -163,6 +165,7 @@ Invoke a skill explicitly, for example:
 /product-discovery:interview-plan
 /product-discovery:interview-simulator
 /product-discovery:data-analysis
+/product-discovery:code-event-storming
 /product-discovery:super-landing-page
 /product-discovery:visual-direction-research
 /product-discovery:document-design-system-components
@@ -178,7 +181,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
@@ -193,6 +196,7 @@ $product-discovery:desk-research
 $product-discovery:interview-plan
 $product-discovery:interview-simulator
 $product-discovery:data-analysis
+$product-discovery:code-event-storming
 $product-discovery:super-landing-page
 $product-discovery:visual-direction-research
 $product-discovery:document-design-system-components
