@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<title>__TITLE__ · EventStorming</title>
+<style>
+:root{color-scheme:light;--ink:#252b2d;--muted:#626965;--paper:#f7f6f0;--line:#d8dbd1}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:15px/1.45 system-ui,-apple-system,sans-serif}button,select{font:inherit;color:inherit}button,select{border:1px solid var(--line);background:#fffdf7;border-radius:6px;padding:8px 12px;cursor:pointer}button:hover{background:#eeeee5}button:focus-visible,select:focus-visible,.sticky:focus-visible{outline:3px solid #273d93;outline-offset:3px}[hidden]{display:none!important}
+header{padding:18px 26px 12px;border-bottom:1px solid var(--line)}.eyebrow{margin:0;color:var(--muted);font-size:10px;font-weight:750;letter-spacing:2px}h1{font-size:27px;letter-spacing:-1px;margin:3px 0 6px}.summary{margin:0;color:var(--muted);max-width:1100px;font-size:13px}.notice{margin:8px 0 0;font-size:12px;color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 26px}.toolbar label{font-size:12px;font-weight:650}.toolbar select{max-width:340px}.toolbar output{min-width:48px;font-size:12px;font-variant-numeric:tabular-nums;text-align:center}.help{margin-left:auto;color:var(--muted);font-size:12px}.legend{padding:0 26px 12px;display:flex;flex-wrap:wrap;gap:7px 16px;font-size:10px;font-weight:650}.legend span{display:inline-flex;gap:6px;align-items:center}.swatch{display:inline-block;width:13px;height:13px;border:1px solid #0002;border-radius:2px}
+main{display:flex;height:calc(100dvh - var(--top,260px));min-height:300px;border-top:1px solid var(--line)}#viewport{flex:1;min-width:0;position:relative;overflow:hidden;touch-action:none;cursor:grab;background-image:radial-gradient(#c9cec5 .8px,transparent .8px);background-size:20px 20px}#viewport.dragging{cursor:grabbing}#world{position:absolute;transform-origin:0 0}.lane{position:absolute;border:1px solid #d2d6cc;border-radius:10px;background:#ffffff75}.lane-head{position:absolute;left:30px;top:20px;right:30px;pointer-events:none}.lane-head h2{margin:0;font-size:23px;letter-spacing:-.6px}.lane-head p{margin:5px 0 0;font-size:14px;color:var(--muted)}.lane-number{font-size:11px;letter-spacing:2px;margin-right:12px;color:var(--muted)}
+.node{position:absolute;width:240px}.sticky{position:relative;width:240px;height:180px;padding:17px 18px;text-align:left;border:1px solid #0002;border-radius:2px;box-shadow:2px 4px 0 #26312612;cursor:pointer;display:flex;flex-direction:column;gap:10px;overflow:hidden}.sticky:hover{filter:brightness(1.025);box-shadow:3px 5px 0 #26312624}.sticky[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:3px}.sticky .type{font-size:10px;letter-spacing:1.2px;font-weight:800}.sticky strong{font-size:21px;line-height:1.16;letter-spacing:-.4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.sticky .hint{font-size:11px;margin-top:auto;opacity:.75}.node-notes{margin-top:12px;padding:12px;background:#fffdf7;border:1px solid var(--line);border-left:3px solid #59635b;font-size:12px;line-height:1.5}.node-notes h3{font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:0 0 6px}.node-notes p{margin:0 0 7px}.node-notes p:last-child{margin:0}.wires{position:absolute;inset:0;overflow:visible;pointer-events:none}.wire{stroke:#6a756d;stroke-width:2;fill:none}.wire.information{stroke-dasharray:8 5}.wire.annotation{stroke-dasharray:2 5;stroke-linecap:round}.line-key{width:26px;border-top:2px solid #6a756d}.line-key.information{border-top-style:dashed}.line-key.annotation{border-top-style:dotted}.edge-label{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 7px;font:12px/1.25 system-ui,sans-serif;color:#354139}.edge-label span{background:#f7f6f0;padding:4px 6px;border-radius:4px;border:1px solid #d8dbd1}
+#details{width:410px;flex-shrink:0;border-left:1px solid var(--line);padding:22px;background:#fffdf7;overflow:auto}#details h2{font-size:23px;line-height:1.2;margin:14px 0}#details .close-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.type-badge{padding:4px 7px;border-radius:3px;font-size:10px;letter-spacing:1px;font-weight:800}#detail-text{white-space:pre-wrap;line-height:1.6;font-size:14px}#details h3{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-top:24px}.source{margin-top:18px}.source p{font:12px/1.4 ui-monospace,monospace;overflow-wrap:anywhere}pre{background:#f0f1ea;border:1px solid var(--line);padding:12px;overflow:auto;font:11px/1.65 ui-monospace,monospace}#selection-hint{font-size:11px;color:var(--muted)}noscript{display:block;padding:30px}
+@media(max-width:800px){header{padding:14px 16px}h1{font-size:23px}.toolbar{padding:10px 16px}.toolbar select{max-width:230px}.help{width:100%;margin:0}.legend{padding-inline:16px;gap:5px 10px}#details{position:fixed;right:0;top:0;bottom:0;width:min(410px,100%);z-index:2;box-shadow:-8px 0 25px #0002}main{min-height:260px}}
+</style>
+</head>
+<body>
+<header>
+  <p class="eyebrow">FROM CODE TO DISCUSSION · EVENTSTORMING</p>
+  <h1 id="title"></h1><p id="summary" class="summary"></p>
+  <p class="notice">Review this snapshot with domain experts. Events describe business facts observed in the implementation.</p>
+</header>
+<nav class="toolbar" aria-label="Board navigation">
+  <label for="process">Process</label><select id="process"></select>
+  <button id="fit" type="button">Fit entire board</button>
+  <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+  <output id="zoom" aria-label="Zoom level"></output>
+  <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+  <span class="help">Drag the background to pan · Scroll to zoom · Select a card to inspect its sources</span>
+</nav>
+<div id="legend" class="legend" aria-label="Board legend"></div>
+<main>
+  <div id="viewport" tabindex="0" role="region" aria-label="Process board. Use the arrow keys to pan and plus or minus to zoom.">
+    <div id="world"></div>
+  </div>
+  <aside id="details" hidden aria-labelledby="detail-title">
+    <div class="close-row"><span id="detail-type" class="type-badge"></span><button id="close" type="button" aria-label="Close source panel">Close ×</button></div>
+    <h2 id="detail-title"></h2><p id="detail-text"></p>
+    <h3>Code evidence</h3><p id="selection-hint">Excerpts and line numbers reflect the code at generation time.</p>
+    <div id="sources"></div>
+  </aside>
+</main>
+<noscript>Enable JavaScript to use the interactive board. The accompanying JSON contains the model and source references.</noscript>
+<script id="model" type="application/json">__MODEL__</script>
+<script>
+'use strict';
+const model = JSON.parse(document.getElementById('model').textContent);
+const $ = id => document.getElementById(id);
+const world = $('world'), viewport = $('viewport');
+const NS = 'http://www.w3.org/2000/svg';
+const W = 240, H = 180, DX = 420;
+const bounds = new Map(), elements = new Map();
+let totalWidth = 0, totalHeight = 0, scale = 1, tx = 0, ty = 0, selected = null;
+function el(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function svg(tag, attrs) {
+  const node = document.createElementNS(NS, tag);
+  for (const [key, value] of Object.entries(attrs || {})) node.setAttribute(key, value);
+  return node;
+}
+$('title').textContent = model.title;
+$('summary').textContent = model.summary;
+for (const [type, color] of Object.entries(model.palette)) {
+  const item = el('span'), swatch = el('i', undefined, 'swatch');
+  swatch.style.background = color;
+  item.append(swatch, document.createTextNode(type));
+  $('legend').append(item);
+}
+for (const [kind, text] of [['flow','Flow →'],['information','Information →'],['annotation','Question · no arrowhead']]) {
+  const item=el('span'); item.append(el('i',undefined,'line-key '+kind),document.createTextNode(text));
+  $('legend').append(item);
+}
+$('process').append(new Option('All processes', ''));
+let offsetY = 30;
+model.lanes.forEach((lane, index) => {
+  const width = Math.max(...lane.nodes.map(n => n.col)) * DX + W + 120;
+  const box = {x:30, y:offsetY, width, height:0};
+  bounds.set(lane.id, box);
+  totalWidth = Math.max(totalWidth, width + 60);
+  const section = el('section', undefined, 'lane');
+  Object.assign(section.style, {left:box.x+'px', top:box.y+'px', width:width+'px'});
+  world.append(section);
+  const head = el('div', undefined, 'lane-head'), heading = el('h2');
+  heading.append(el('span', String(index + 1).padStart(2, '0'), 'lane-number'), document.createTextNode(lane.title));
+  head.append(heading, el('p', lane.description)); section.append(head);
+  const positions = new Map();
+  for (const node of lane.nodes) {
+    const p = {x:60+node.col*DX, y:0, height:H}, wrapper=el('div',undefined,'node');
+    positions.set(node.id,p);
+    const card = el('button', undefined, 'sticky');
+    card.type = 'button'; card.dataset.node = node.id;
+    card.setAttribute('aria-pressed', 'false');
+    card.setAttribute('aria-label', `${node.type}: ${node.title}. Show details and sources.`);
+    card.title = node.title;
+    card.style.background=model.palette[node.type];
+    card.append(el('span', node.type, 'type'), el('strong', node.title), el('span', `${node.sources.length} ${node.sources.length === 1 ? "source" : "sources"} · select to inspect`, 'hint'));
+    card.onclick = () => showDetails(node, card);
+    card.onfocus = () => {
+      const visible = card.getBoundingClientRect(), view = viewport.getBoundingClientRect();
+      if (visible.left < view.left || visible.right > view.right || visible.top < view.top || visible.bottom > view.bottom) {
+        scale = Math.max(.7, scale);
+        tx = viewport.clientWidth/2 - (box.x+p.x+W/2)*scale;
+        ty = viewport.clientHeight/2 - (box.y+p.y+H/2)*scale;
+        apply();
+      }
+    };
+    elements.set(node.id, card); wrapper.append(card);
+    for (const [key,heading] of [['rules','Rules'],['outcomes','Refusals and retries']]) {
+      if (!node[key]?.length) continue;
+      const notes=el('div',undefined,'node-notes'); notes.append(el('h3',heading));
+      for (const note of node[key]) notes.append(el('p',note.text));
+      wrapper.append(notes);
+    }
+    wrapper.style.left=p.x+'px'; section.append(wrapper); p.wrapper=wrapper;
+  }
+  // Measure note blocks before drawing wires; every row reserves their full height.
+  const rowHeights=new Map(), rowY=new Map();
+  for (const node of lane.nodes) {
+    const p=positions.get(node.id); p.height=p.wrapper.offsetHeight;
+    rowHeights.set(node.row,Math.max(rowHeights.get(node.row)||0,p.height));
+  }
+  let y=110;
+  for (let row=0;row<=Math.max(...lane.nodes.map(n=>n.row));row++) {
+    rowY.set(row,y); y+=(rowHeights.get(row)||H)+110;
+  }
+  for (const node of lane.nodes) {
+    const p=positions.get(node.id); p.y=rowY.get(node.row); p.wrapper.style.top=p.y+'px';
+  }
+  box.height=y-50; section.style.height=box.height+'px';
+  const wires=svg('svg',{width,height:box.height,class:'wires','aria-label':'Process connections'});
+  const markerId='arrow-'+index, defs=svg('defs');
+  const marker=svg('marker',{id:markerId,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'});
+  marker.append(svg('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'#6a756d'})); defs.append(marker); wires.append(defs);
+  for (const edge of lane.edges) {
+    const a=positions.get(edge.from), b=positions.get(edge.to);
+    let path, lx, ly;
+    if (b.x>a.x) {
+      const sx=a.x+W+5,sy=a.y+H/2,ex=b.x-7,ey=b.y+H/2,mid=(sx+ex)/2;
+      path=`M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ey}, ${ex} ${ey}`;
+      lx=mid;ly=(sy+ey)/2;
+    } else if (a.x===b.x) {
+      const down=b.y>a.y,sx=a.x+W/2,sy=down?a.y+a.height+5:a.y-5;
+      const ey=down?b.y-7:b.y+b.height+7;
+      path=`M ${sx} ${sy} L ${sx} ${ey}`;lx=sx+84;ly=(sy+ey)/2;
+    } else {
+      const down=b.y>a.y,sx=a.x+W/2,ex=b.x+W/2;
+      const sy=down?a.y+a.height+5:a.y-5,ey=down?b.y-7:b.y+b.height+7;
+      const corridor=down?b.y-55:a.y-55;
+      path=`M ${sx} ${sy} L ${sx} ${corridor} L ${ex} ${corridor} L ${ex} ${ey}`;
+      lx=(sx+ex)/2;ly=corridor;
+    }
+    const group=svg('g',{'data-kind':edge.kind});group.append(svg('title'));
+    group.firstChild.textContent=edge.label;
+    const attrs={d:path,class:'wire '+edge.kind};
+    if (edge.kind!=='annotation') attrs['marker-end']=`url(#${markerId})`;
+    group.append(svg('path',attrs));
+    const label=svg('foreignObject',{x:lx-81,y:ly-40,width:162,height:80});
+    const text=el('div',undefined,'edge-label');text.append(el('span',edge.label));label.append(text);group.append(label);wires.append(group);
+  }
+  section.prepend(wires);
+  $('process').append(new Option(lane.title, lane.id));
+  totalHeight=offsetY+box.height+30;offsetY+=box.height+50;
+});
+world.style.width = totalWidth+'px'; world.style.height = totalHeight+'px';
+function apply() {
+  world.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+  $('zoom').textContent = Math.round(scale*100)+'%';
+}
+function fit(box) {
+  scale = Math.min(1, (viewport.clientWidth-32)/box.width, (viewport.clientHeight-32)/box.height);
+  tx = (viewport.clientWidth-box.width*scale)/2-box.x*scale;
+  ty = (viewport.clientHeight-box.height*scale)/2-box.y*scale;
+  apply();
+}
+function fitCurrent() {
+  fit(bounds.get($('process').value) || {x:0,y:0,width:totalWidth,height:totalHeight});
+}
+function zoom(factor, x=viewport.clientWidth/2, y=viewport.clientHeight/2) {
+  const next = Math.max(.03, Math.min(2.5, scale*factor));
+  tx = x-(x-tx)*next/scale; ty = y-(y-ty)*next/scale; scale = next; apply();
+}
+function showDetails(node, card) {
+  if (selected) elements.get(selected).setAttribute('aria-pressed', 'false');
+  selected = node.id; card.setAttribute('aria-pressed', 'true');
+  $('detail-title').textContent = node.title; $('detail-text').textContent = node.detail;
+  $('detail-type').textContent = node.type; $('detail-type').style.background = model.palette[node.type];
+  $('sources').replaceChildren();
+  for (const source of node.sources) {
+    const item = el('section', undefined, 'source');
+    item.append(el('p', source.path+':'+source.line+(source.end!==source.line?'–'+source.end:'')), el('pre', source.excerpt));
+    $('sources').append(item);
+  }
+  for (const [key,heading] of [['rules','Rules'],['outcomes','Refusals and retries']]) {
+    if (!node[key]?.length) continue;
+    $('sources').append(el('h3',heading));
+    for (const note of node[key]) {
+      $('sources').append(el('p',note.text));
+      for (const source of note.sources) {
+        const item=el('section',undefined,'source');
+        item.append(el('p',source.path+':'+source.line+(source.end!==source.line?'–'+source.end:'')),el('pre',source.excerpt));
+        $('sources').append(item);
+      }
+    }
+  }
+  $('details').hidden = false; $('close').focus();
+}
+function closeDetails() {
+  $('details').hidden = true;
+  if (selected) { const card = elements.get(selected); card.setAttribute('aria-pressed', 'false'); card.focus(); }
+  selected = null;
+}
+$('close').onclick = closeDetails;
+document.addEventListener('keydown', event => { if (event.key==='Escape' && !$('details').hidden) closeDetails(); });
+$('process').onchange = fitCurrent;
+$('fit').onclick = () => { $('process').value=''; fitCurrent(); };
+$('zoom-in').onclick = () => zoom(1.25); $('zoom-out').onclick = () => zoom(.8);
+viewport.addEventListener('wheel', event => {
+  event.preventDefault(); const rect=viewport.getBoundingClientRect();
+  zoom(Math.exp(-event.deltaY*.0015),event.clientX-rect.left,event.clientY-rect.top);
+}, {passive:false});
+let drag = null;
+viewport.addEventListener('pointerdown', event => {
+  if (event.target.closest('button') || event.button!==0) return;
+  drag={x:event.clientX,y:event.clientY,tx,ty};
+  viewport.setPointerCapture(event.pointerId); viewport.classList.add('dragging');
+});
+viewport.addEventListener('pointermove', event => {
+  if (!drag) return; tx=drag.tx+event.clientX-drag.x; ty=drag.ty+event.clientY-drag.y; apply();
+});
+for (const name of ['pointerup','pointercancel','lostpointercapture']) viewport.addEventListener(name, () => {drag=null;viewport.classList.remove('dragging');});
+viewport.addEventListener('keydown', event => {
+  if (event.target!==viewport) return;
+  if (event.key==='+' || event.key==='=') zoom(1.25);
+  else if (event.key==='-') zoom(.8);
+  else if (event.key==='ArrowLeft') tx+=70;
+  else if (event.key==='ArrowRight') tx-=70;
+  else if (event.key==='ArrowUp') ty+=70;
+  else if (event.key==='ArrowDown') ty-=70;
+  else return;
+  event.preventDefault(); apply();
+});
+function resize() {
+  document.documentElement.style.setProperty('--top', document.querySelector('main').offsetTop+'px');
+  fitCurrent();
+}
+window.addEventListener('resize',resize);
+$('process').value=model.lanes[0].id;
+resize();
+</script>
+</body>
+</html>

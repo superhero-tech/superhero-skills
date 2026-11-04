@@ -1,0 +1,4 @@
+interface:
+  display_name: "EventStorming from Code"
+  short_description: "Map business processes from code in an offline HTML board"
+  default_prompt: "Use $code-event-storming to map business processes from the current codebase and save an EventStorming board."
