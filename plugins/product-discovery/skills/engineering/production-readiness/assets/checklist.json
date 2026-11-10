@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "categories": [
     {
       "id": "access",
@@ -47,7 +47,15 @@
       "required": true,
       "priority": "high",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "account-sessions",
@@ -63,7 +71,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "abuse-limits",
@@ -79,15 +95,23 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "secrets",
       "category": "data",
-      "title": "Hasła i klucze nie są publiczne",
+      "title": "Kod i wynik kompilacji nie ujawniają kluczy",
       "why": "Ujawniony klucz może dać obcej osobie dostęp do usług lub danych.",
       "condition": "Zawsze",
-      "verification": "Sprawdź źródła, historię istotnych plików, konfigurację i wynik kompilacji pod kątem sekretów; ujawnione klucze wymagają wymiany.",
+      "verification": "Sprawdź źródła, historię istotnych plików i wynik kompilacji pod kątem sekretów; ujawnione klucze wymagają wymiany. Konfigurację docelowego wdrożenia sprawdza osobny punkt.",
       "steps": [
         "Agent sprawdzi miejsca przechowywania kluczy bez wyświetlania ich wartości.",
         "Jeśli klucz wyciekł, właściciel wymienia go w usłudze według uzgodnionej procedury."
@@ -95,7 +119,15 @@
       "required": true,
       "priority": "high",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "input-safety",
@@ -111,7 +143,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "transport",
@@ -127,7 +167,11 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
     },
     {
       "id": "restore",
@@ -135,7 +179,7 @@
       "title": "Ważne dane można odzyskać z kopii",
       "why": "Istnienie kopii nie oznacza, że da się z niej skorzystać.",
       "condition": "Aplikacja przechowuje dane, których utrata jest istotna.",
-      "verification": "Uzyskaj wynik odtworzenia kopii w oddzielnym środowisku, datę, zakres i sprawdzenie odzyskanych danych.",
+      "verification": "Uzyskaj wynik odtworzenia kopii w oddzielnym środowisku, datę, zakres i sprawdzenie odzyskanych danych. Potwierdź pochodzenie i reprezentatywność kopii oraz konfiguracji dla planowanej produkcji; lokalna fikcyjna baza nie dowodzi odzyskiwalności właściwych danych.",
       "steps": [
         "Ustal dopuszczalną utratę danych i czas przywrócenia.",
         "Odtwórz kopię w oddzielnym środowisku testowym zgodnie z instrukcją dostawcy.",
@@ -144,7 +188,14 @@
       "required": true,
       "priority": "high",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging"
+      ]
     },
     {
       "id": "data-lifecycle",
@@ -161,15 +212,23 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "main-journey",
       "category": "behavior",
-      "title": "Najważniejsze zadanie użytkownika działa",
+      "title": "Najważniejsze zadanie działa przed wdrożeniem",
       "why": "Aplikacja może się uruchamiać, ale nie spełniać swojego celu.",
       "condition": "Zawsze",
-      "verification": "Przejdź główny scenariusz od początku do końca oraz jego istotne błędy na bezpiecznych danych.",
+      "verification": "Przejdź główny scenariusz i istotne błędy na bezpiecznych danych lokalnie albo w środowisku developerskim, preview lub staging. Wynik nie potwierdza działania docelowego wdrożenia.",
       "steps": [
         "Wybierz najważniejsze zadanie użytkownika.",
         "Agent sprawdzi poprawny przebieg i zachowanie przy błędzie."
@@ -177,7 +236,14 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging"
+      ]
     },
     {
       "id": "production-build",
@@ -193,7 +259,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "dependencies",
@@ -209,7 +283,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "payments",
@@ -225,7 +307,15 @@
       "required": true,
       "priority": "high",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "concurrent-writes",
@@ -241,7 +331,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "file-network-input",
@@ -257,7 +355,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "environment",
@@ -265,7 +371,7 @@
       "title": "Wiadomo, gdzie i dla kogo wydajemy aplikację",
       "why": "Bez docelowego środowiska nie można potwierdzić właściwej konfiguracji.",
       "condition": "Zawsze",
-      "verification": "Potwierdź hosting, odbiorców, rodzaj danych, skutki awarii i konfigurację potrzebną do uruchomienia.",
+      "verification": "Potwierdź hosting, odbiorców, rodzaj danych, skutki awarii, planowane środowiska i konfigurację potrzebną do uruchomienia. Nie wymaga to istniejącego wdrożenia.",
       "steps": [
         "Agent odczyta znane ustawienia z projektu.",
         "Uzupełnij brakujące decyzje o miejscu i sposobie udostępnienia aplikacji."
@@ -273,7 +379,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "repeatable-release",
@@ -289,7 +403,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "migrations",
@@ -305,7 +427,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "rollback",
@@ -321,7 +451,15 @@
       "required": true,
       "priority": "high",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "smoke-plan",
@@ -337,7 +475,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "environment-isolation",
@@ -353,15 +499,23 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "error-observability",
       "category": "monitoring",
-      "title": "Błędy są widoczne bez ujawniania danych",
+      "title": "Błędy wdrożenia można znaleźć bez ujawniania danych",
       "why": "Niewidoczny błąd trwa dłużej, a nadmiar informacji w logach może ujawnić sekrety.",
       "condition": "Zawsze",
-      "verification": "Sprawdź rejestrację istotnych błędów, dostęp do logów i brak sekretów oraz danych wrażliwych w komunikatach.",
+      "verification": "W docelowym wdrożeniu sprawdź dostęp do logów i rejestrację bezpiecznego błędu testowego, bez sekretów i danych wrażliwych. Sama obecność SDK w kodzie nie wystarcza.",
       "steps": [
         "Wywołaj bezpieczny błąd testowy.",
         "Potwierdź, że można go znaleźć, a zapis nie ujawnia poufnych danych."
@@ -369,7 +523,11 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
     },
     {
       "id": "alerts",
@@ -377,7 +535,7 @@
       "title": "Informacja o awarii dociera do konkretnej osoby",
       "why": "Sam wykres nie pomoże, jeśli nikt nie zobaczy problemu.",
       "condition": "Zawsze",
-      "verification": "Uzyskaj dowód monitorowania dostępności lub kluczowej funkcji oraz dostarczenia testowego powiadomienia do właściciela.",
+      "verification": "Uzyskaj dowód monitorowania docelowego adresu lub kluczowej funkcji i dostarczenia bezpiecznego testowego powiadomienia z właściwego środowiska do właściciela. Nie wywołuj rzeczywistej awarii.",
       "steps": [
         "Wybierz sygnał problemu i odbiorcę.",
         "Potwierdź dostarczenie powiadomienia testowego."
@@ -385,7 +543,11 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
     },
     {
       "id": "bounded-calls",
@@ -401,7 +563,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "capacity",
@@ -417,7 +587,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "incident-owner",
@@ -433,7 +611,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "recovery-plan",
@@ -449,7 +635,15 @@
       "required": true,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "accessibility",
@@ -465,7 +659,15 @@
       "required": false,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
     },
     {
       "id": "support-info",
@@ -481,7 +683,160 @@
       "required": false,
       "priority": "normal",
       "origin": "baseline",
-      "rationale": "Wymaganie szablonu bazowego."
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
+    },
+    {
+      "id": "main-journey-production",
+      "category": "behavior",
+      "title": "Główne zadanie działa pod docelowym adresem",
+      "why": "Lokalny sukces nie potwierdza konfiguracji, integracji i połączeń wdrożonej aplikacji.",
+      "condition": "Zawsze",
+      "verification": "Wykonaj krótki smoke test konkretnego wdrożenia: docelowy adres, główny scenariusz, zapis i odczyt jeśli występują oraz sygnały awarii. Użyj bezpiecznych kont i danych, sprawdź ustalony warunek wycofania.",
+      "steps": [
+        "Potwierdź wersję wdrożenia i docelowy adres.",
+        "Wykonaj uzgodniony plan kontroli bez wpływania na prawdziwych użytkowników.",
+        "Zapisz wynik oraz decyzję przy niespełnieniu warunku kontroli."
+      ],
+      "required": true,
+      "priority": "high",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
+    },
+    {
+      "id": "access-production",
+      "category": "access",
+      "title": "Dostęp i sesje działają we wdrożeniu",
+      "why": "Ustawienia domeny, ciasteczek lub integracji logowania mogą zmienić ochronę dostępu.",
+      "condition": "Aplikacja ma konta, prywatne dane lub operacje z ograniczonym dostępem.",
+      "verification": "Na bezpiecznych kontach sprawdź logowanie i wylogowanie, jeśli występują, odmowę dostępu bez uprawnień i granice dostępu między kontami. Zweryfikuj konfigurację docelowego mechanizmu.",
+      "steps": [
+        "Uzgodnij bezpieczne konta testowe.",
+        "Sprawdź właściwe dla aplikacji granice dostępu w docelowym wdrożeniu."
+      ],
+      "required": true,
+      "priority": "high",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
+    },
+    {
+      "id": "production-config",
+      "category": "release",
+      "title": "Konfiguracja wdrożenia wskazuje właściwe usługi",
+      "why": "Poprawny kod może używać złej bazy, kluczy testowych albo niewłaściwych adresów integracji.",
+      "condition": "Zawsze",
+      "verification": "Potwierdź konfigurację konkretnego wdrożenia: niezbędne zmienne i referencje do sekretów, bazę, usługi i właściwy tryb integracji, bez ujawniania wartości sekretów. Sprawdź, że sekrety nie trafiają do publicznego klienta.",
+      "steps": [
+        "Potwierdź wersję konfiguracji docelowego środowiska.",
+        "Sprawdź właściwe usługi, tryby i uprawnienia bez kopiowania sekretów do raportu."
+      ],
+      "required": true,
+      "priority": "high",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
+    },
+    {
+      "id": "production-backups",
+      "category": "data",
+      "title": "Kopie obejmują właściwe dane produkcyjne",
+      "why": "Próba odtworzenia danych testowych nie potwierdza kopii właściwej bazy.",
+      "condition": "Aplikacja przechowuje dane, których utrata jest istotna.",
+      "verification": "Potwierdź objęcie właściwej produkcyjnej bazy lub magazynu kopią, zakres i świeżość kopii oraz zgodność z uzgodnioną utratą danych. Powiąż to z próbą odtworzenia w odizolowanym środowisku.",
+      "steps": [
+        "Sprawdź, jakie zasoby obejmuje kopia i kiedy ostatnio ją wykonano.",
+        "Potwierdź, że próba odzyskania reprezentuje właściwe dane i konfigurację."
+      ],
+      "required": true,
+      "priority": "high",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "deployment",
+      "environment_kinds": [
+        "production"
+      ]
+    },
+    {
+      "id": "observability-preparation",
+      "category": "monitoring",
+      "title": "Sposób rejestrowania błędów jest przygotowany",
+      "why": "Przed wdrożeniem warto sprawdzić, czy błędy można rozpoznać bez wycieku danych.",
+      "condition": "Zawsze",
+      "verification": "Sprawdź obsługę i rejestrację istotnych błędów na bezpiecznych danych oraz konfigurację dostępu do logów. Potwierdzenie działania logów i alarmów produkcji ma osobne punkty.",
+      "steps": [
+        "Sprawdź bezpieczny błąd i treść komunikatów.",
+        "Przygotuj konfigurację rejestrowania błędów dla docelowego środowiska."
+      ],
+      "required": true,
+      "priority": "normal",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "preparation",
+      "environment_kinds": [
+        "local",
+        "development",
+        "preview",
+        "staging",
+        "production"
+      ]
+    },
+    {
+      "id": "observed-reliability",
+      "category": "monitoring",
+      "title": "Działanie z użytkownikami mieści się w ustalonych oczekiwaniach",
+      "why": "Krótki smoke test nie pokazuje awarii występujących podczas rzeczywistego użycia.",
+      "condition": "Aplikacja obsługuje rzeczywistych użytkowników lub planuje ich obsługiwać.",
+      "verification": "Uzgodnij adekwatny okres lub próbkę rzeczywistego ruchu i oczekiwania. Sprawdź błędy, dostępność i powodzenie głównego scenariusza. Brak wystarczającej próbki to brak dowodu, nie sukces.",
+      "steps": [
+        "Ustal adekwatną próbkę i kryteria z właścicielem.",
+        "Po udostępnieniu porównaj rzeczywiste wyniki z kryteriami."
+      ],
+      "required": true,
+      "priority": "normal",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "observation",
+      "environment_kinds": [
+        "production"
+      ]
+    },
+    {
+      "id": "observed-capacity-cost",
+      "category": "monitoring",
+      "title": "Rzeczywiste zasoby i koszty mieszczą się w ustaleniach",
+      "why": "Prognoza przed premierą nie pokazuje faktycznych kosztów i ograniczeń.",
+      "condition": "Rzeczywiste użycie aplikacji może generować istotne koszty lub wyczerpać zasoby.",
+      "verification": "Na uzgodnionej próbce rzeczywistego użycia porównaj zużycie zasobów, limity i naliczone koszty z oczekiwaniami. Uwzględnij opóźnienie raportowania kosztów. Nie narzucaj uniwersalnego czasu obserwacji.",
+      "steps": [
+        "Ustal adekwatną próbkę ruchu i budżet.",
+        "Sprawdź rzeczywiste zużycie oraz dostępne rozliczenie kosztów."
+      ],
+      "required": true,
+      "priority": "normal",
+      "origin": "baseline",
+      "rationale": "Wymaganie szablonu bazowego.",
+      "stage": "observation",
+      "environment_kinds": [
+        "production"
+      ]
     }
   ]
 }

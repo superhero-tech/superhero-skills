@@ -1,6 +1,6 @@
 # Sources and adaptation
 
-Reviewed 2026-11-09. This skill's Polish checklist, state model, renderer, HTML and tests are newly authored. The following upstream workflows informed the design; no upstream source files or license text are bundled or required at runtime.
+Workflows reviewed 2026-11-09; bundled font added 2026-11-10. This skill's Polish checklist, state model, renderer, HTML and tests are newly authored. The following upstream workflows informed the design; no workflow source files or license text are bundled or required at runtime.
 
 | Source | Attribution / license | Ideas used and changes |
 |---|---|---|
@@ -10,3 +10,7 @@ Reviewed 2026-11-09. This skill's Polish checklist, state model, renderer, HTML 
 | [Meghshyams Production-Readiness README](https://github.com/Meghshyams/Production-Readiness) | [MIT](https://github.com/Meghshyams/Production-Readiness/blob/main/LICENSE) | Workflow comparison only; detailed instructions were unavailable during review. No cache-based skipping of fresh verification. |
 
 If future changes copy or substantially adapt upstream text/code, include its complete license and required copyright/NOTICE information and mark changes. Do not treat these links as a substitute for redistribution notices. The present implementation uses independently expressed controls and original code under this repository's MIT license.
+
+## Bundled font
+
+[Geist Sans](https://github.com/vercel/geist-font/blob/main/fonts/Geist/webfonts/Geist%5Bwght%5D.woff2) is bundled unchanged as `assets/Geist.woff2` under the [SIL Open Font License 1.1](https://github.com/vercel/geist-font/blob/main/OFL.txt). Its complete upstream notice/license is retained in `assets/Geist-OFL.txt` and embedded in every generated HTML report alongside the font. Font attribution and licensing remain separate from this repository's MIT code license. The report needs no font CDN or network connection.
