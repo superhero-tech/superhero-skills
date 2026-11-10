@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gotowość do produkcji"
+  short_description: "Przygotuj aplikację do wydania krok po kroku"
+  default_prompt: "Użyj $production-readiness, aby sprawdzić ten projekt i poprowadzić mnie krok po kroku przez przygotowanie do produkcji."

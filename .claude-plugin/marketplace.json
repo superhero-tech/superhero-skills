@@ -5,13 +5,13 @@
     "email": "superhero@superhero.tech",
     "url": "https://superhero.tech"
   },
-  "description": "Product Discovery and Product Design skills for product builders, from Superhero.tech.",
+  "description": "Product Discovery, Product Design and Engineering skills for product builders, from Superhero.tech.",
   "plugins": [
     {
       "name": "product-discovery",
       "displayName": "Superhero Skills",
       "source": "./plugins/product-discovery",
-      "description": "Product discovery and design workflows: business ideas, Supersprint discovery cycles, customer research, affinity mapping, code-based EventStorming, desk research, interview planning and simulation, data analysis, PRES prioritization, experiment design, art-directed landing pages, visual direction research, design-system component documentation, and reusable Figma libraries.",
+      "description": "Product discovery and design workflows: business ideas, Supersprint discovery cycles, customer research, affinity mapping, code-based EventStorming, desk research, interview planning and simulation, data analysis, PRES prioritization, experiment design, art-directed landing pages, visual direction research, design-system component documentation, and reusable Figma libraries. Production-readiness guides release preparation with an evidence-backed offline HTML checklist.",
       "category": "product-management",
       "tags": [
         "discovery",
@@ -29,9 +29,11 @@
         "visual-direction",
         "moodboard",
         "component-documentation",
-        "event-storming"
+        "event-storming",
+        "engineering",
+        "production-readiness"
       ],
-      "version": "1.14.0",
+      "version": "1.15.0",
       "author": {
         "name": "Superhero.tech",
         "email": "superhero@superhero.tech",
