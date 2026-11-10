@@ -240,7 +240,8 @@ def metrics(model, items=None, stage=None):
     required = [i for i in items if i['stage'] == stage and i['required'] and i['applicability'] != 'no']
     passed = sum(is_pass(i, model) for i in required)
     total = len(required)
-    waiting = sum(bool(waiting_reason(model, i)) and not is_pass(i, model) for i in required)
+    waiting = sum(bool(waiting_reason(model, i)) and i['status'] != 'fail' and not is_pass(i, model)
+                  for i in required)
     return {'passed': passed, 'total': total, 'score': passed * 100 // total if total else None,
             'blockers': total - passed, 'waiting': waiting, 'actionable': total - passed - waiting}
 
@@ -286,7 +287,8 @@ def next_item(model):
     stages = list(STAGES)
     target_index = stages.index(model['context']['target_stage'])
     pending = [i for i in model['items'] if i['applicability'] != 'no' and not is_pass(i, model) and
-               stages.index(i['stage']) <= target_index and not waiting_reason(model, i)]
+               stages.index(i['stage']) <= target_index and
+               (not waiting_reason(model, i) or i['stage'] == 'preparation' or i['status'] == 'fail')]
     # A future manual selection must not displace an actionable prerequisite.
     first_stage = min((stages.index(i['stage']) for i in pending if i['required']), default=target_index)
     pending = [i for i in pending if stages.index(i['stage']) <= first_stage]
@@ -386,7 +388,9 @@ def document(model):
     score = str(result['score']) + '%' if result['score'] is not None else 'Brak oceny'
     selected = next_item(model)
     if selected:
-        next_html = f'<span class="next-label">Następny krok | {e(OWNERS[selected["owner"]])}</span><a class="jump" href="#{e(selected["id"])}">{e(selected["title"])}</a>'
+        access_step = ('Zapewnij dostęp do środowiska testowego, aby sprawdzić: '
+                       if selected['stage'] == 'preparation' and waiting_reason(model, selected) else '')
+        next_html = f'<span class="next-label">Następny krok | {e(OWNERS[selected["owner"]])}</span><a class="jump" href="#{e(selected["id"])}">{e(access_step + selected["title"])}</a>'
     elif model['audit']['phase'] != 'complete' or not model['context']['scope_confirmed']:
         next_html = '<span class="next-label">Następny krok | Agent i użytkownik</span><span>Dokończ ustalenie zakresu oceny</span>'
     else:

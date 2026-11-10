@@ -449,6 +449,41 @@ class ChecklistTests(unittest.TestCase):
         self.assertEqual(stats['waiting'], stats['total'])
         self.assertEqual(stats['passed'], 0)
 
+    def test_unavailable_preparation_environment_does_not_suggest_advancing(self):
+        self.all_passed()
+        unavailable = copy.deepcopy(self.model['environments'][0])
+        unavailable.update(id='unavailable-test', available=False)
+        self.model['environments'].append(unavailable)
+        item = next(i for i in self.model['items'] if i['id'] == 'main-journey')
+        item.update(status='unverified', evidence=[], environment_id=unavailable['id'])
+        for stage in ('preparation', 'deployment'):
+            with self.subTest(stage=stage):
+                self.model['context']['target_stage'] = stage
+                c.validate(self.model)
+                self.assertEqual(c.next_item(self.model)['id'], item['id'])
+                rendered = c.document(self.model)
+                next_action = rendered.split('<section class="next"')[1].split('</section>')[0]
+                self.assertIn('href="#main-journey"', next_action)
+                self.assertNotIn('Wdróż aplikację', next_action)
+                self.assertNotIn('Ustal udostępnienie', next_action)
+                self.assertIn('Zapewnij dostęp', next_action)
+
+    def test_known_failure_is_actionable_even_before_deployment(self):
+        item = next(i for i in self.model['items'] if i['id'] == 'transport')
+        item.update(status='fail', finding='Docelowy adres nie obsługuje HTTPS.')
+        self.model['context']['target_stage'] = 'deployment'
+        c.validate(self.model)
+        self.assertEqual(c.label(item, self.model), 'Wymaga poprawy')
+        stats = c.metrics(self.model, stage='deployment')
+        self.assertEqual(stats['waiting'], stats['total'] - 1)
+        self.assertEqual(stats['actionable'], 1)
+        # Once preparation is complete, the known defect must still be the next action.
+        for prerequisite in self.model['items']:
+            if prerequisite['stage'] == 'preparation':
+                self.pass_item(prerequisite)
+        self.assertEqual(c.next_item(self.model)['id'], item['id'])
+        self.assertIn('data-kind="blocker"', c.item_html(item, self.model))
+
     def test_legacy_report_is_not_read_migrated_or_overwritten(self):
         legacy = copy.deepcopy(self.model)
         legacy['schema_version'] = 1
