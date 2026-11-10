@@ -5,7 +5,7 @@ description: Guide users through preparing a web app or API for production, veri
 
 # Production readiness
 
-Help the user prepare an application for release, step by step. The durable result is one Polish, offline `docs/production-readiness.html` with embedded state, evidence and history. Default to the user's language in conversation; use Polish in the report unless requested otherwise. This initial skill requires validation on real product work; do not describe its output as a security certification.
+Help the user prepare an application for release, step by step. The durable result is one Polish, offline `docs/production-readiness.html` with embedded state, evidence and history. Default to the user's language in conversation; use Polish in the report unless requested otherwise. Do not describe its output as a security certification.
 
 Requires local repository access and Python 3.9 or later. The HTML works offline, including its embedded Geist Sans font; JavaScript only enables filters.
 
