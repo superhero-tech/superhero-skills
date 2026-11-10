@@ -230,17 +230,20 @@ def document(model):
     score = str(result['score']) + '%' if result['score'] is not None else 'Brak oceny'
     selected = next_item(model)
     if selected:
-        next_html = f'<p class="eyebrow">Następny krok · {e(OWNERS[selected["owner"]])}</p><h2>{e(selected["title"])}</h2><p>{e(selected["why"])}</p><p>{e(selected["steps"][0])}</p><a class="button jump" href="#{e(selected["id"])}">Zobacz instrukcję</a>'
+        next_html = f'<span class="next-label">Następny krok · {e(OWNERS[selected["owner"]])}</span><a class="jump" href="#{e(selected["id"])}">{e(selected["title"])}</a>'
     elif verdict(model) != 'Spełnia wymagania checklisty':
-        next_html = '<p class="eyebrow">Następny krok · Agent i użytkownik</p><h2>Dokończ ustalenie zakresu oceny</h2><p>Potwierdź środowisko, odbiorców, dane i skutki awarii. Dopiero zakończona ocena może być podstawą decyzji o wydaniu.</p>'
+        next_html = '<span class="next-label">Następny krok · Agent i użytkownik</span><span>Dokończ ustalenie zakresu oceny</span>'
     else:
-        next_html = '<p class="eyebrow">Następny krok · Użytkownik</p><h2>Przejrzyj ocenę i zdecyduj o wydaniu</h2><p>Agent nie wdraża aplikacji. Ta checklista jest zapisem oceny wskazanej wersji i środowiska.</p>'
+        next_html = '<span class="next-label">Następny krok · Użytkownik</span><span>Przejrzyj ocenę i zdecyduj o wydaniu</span>'
     categories, sections = [], []
+    short_categories = {'access': 'Dostęp', 'data': 'Dane', 'behavior': 'Działanie',
+                        'release': 'Wdrożenie', 'monitoring': 'Monitoring', 'recovery': 'Awarie'}
     for cat in TEMPLATE['categories']:
         items = [i for i in model['items'] if i['category'] == cat['id']]
         stats = metrics(model, items)
         percent = str(stats['score']) + '%' if stats['score'] is not None else 'Nie dotyczy'
-        categories.append(f'<a class="category jump" href="#cat-{cat["id"]}"><strong>{e(cat["title"])}</strong><span>{percent}</span><small>{stats["passed"]}/{stats["total"]} wymagań · Blokery: {stats["blockers"]}</small></a>')
+        category_description = f'{cat["title"]}: {stats["passed"]}/{stats["total"]} wymagań, blokery: {stats["blockers"]}'
+        categories.append(f'<a class="category jump" href="#cat-{cat["id"]}" title="{e(category_description)}" aria-label="{e(category_description)}"><strong>{e(short_categories[cat["id"]])}</strong><span>{percent}</span></a>')
         sections.append(f'<section class="category-section" id="cat-{cat["id"]}"><h2>{e(cat["title"])}</h2><p class="muted">{e(cat["description"])}</p><div class="check-list">' + ''.join(item_html(i, model) for i in items) + '</div></section>')
     history = []
     for old in reversed(model['history']):
