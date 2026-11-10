@@ -6,7 +6,7 @@ Product judgment becomes the bottleneck. Someone still has to decide what is wor
 
 Product Builders are deep in one discipline and capable across two or three adjacent ones. In practice, that can be a PM who prototypes instead of waiting for engineering, an engineer who runs interviews instead of waiting for research, or a designer who ships working code instead of handing off mockups. AI helps them close skill gaps without handing over judgment.
 
-We built these skills from 32+ years of combined experience building global products at Booking.com, CD Projekt, Displate and GOG.com. Versions of these workflows have been used by 1,800 Product Builders in [AI Product Heroes](https://aiproductheroes.pl). If a workflow has not survived real product work, it stays out of this repository.
+We built these skills from 32+ years of combined experience building global products at Booking.com, CD Projekt, Displate and GOG.com. Versions of these workflows have been used by 1,800 Product Builders in [AI Product Heroes](https://aiproductheroes.pl). Stable workflows have survived real product work. Experimental entries are explicitly labeled and still require that validation.
 
 ## The Product Builder OS
 
@@ -40,13 +40,14 @@ Traditional teams run this loop in quarters, slowed down by a handoff at every s
 
 ## Available skills
 
-**Superhero Skills** is one plugin with two skill folders: **Product Discovery** and **Product Design**. The technical installation ID and command namespace remain `product-discovery`, so existing installations can update normally. Folder grouping organizes the repository; the host may display a flat list of skills.
+**Superhero Skills** is one plugin with three skill folders: **Product Discovery**, **Product Design** and **Engineering**. The technical installation ID and command namespace remain `product-discovery`, so existing installations can update normally. Folder grouping organizes the repository; the host may display a flat list of skills.
 
 The skills need no separate API keys, personal knowledge vault or private development repository. Supply your own project context and evidence. Requirements depend on the work:
 
 - A host that can read skills and save files in your chosen project.
 - Python 3 for the bundled tree, affinity-map and recommendation renderers; these use only the standard library. The optional customer-opinion counter also uses standard Python.
 - For `code-event-storming`, access to the project's source code and Python 3.9 or later. The renderer uses the standard library, and the generated board works offline in a browser with JavaScript enabled.
+- For `production-readiness`, local project access and Python 3.9 or later. The renderer uses only the standard library; the single HTML report works offline. JavaScript enables optional viewing filters.
 - For data analysis, pandas, matplotlib and seaborn; DuckDB for SQL, and readers such as openpyxl or pyarrow when the input format needs them. The plugin provides instructions and scripts, not a Python distribution or these libraries.
 - Live web search and readable original sources for `desk-research` and `customer-research`.
 - For `visual-direction-research`, live web search, browser access to inspect rendered websites, and screenshot capture. Optional PDF export needs a PDF-capable workflow.
@@ -113,7 +114,19 @@ Before each stage, Supersprint asks what you want to add and waits for your repl
 
 `build-figma-library` handles the Figma stage when you need native, editable assets. It reconstructs the documented system as Variables, styles and components, checks variant properties and composition examples, and verifies that another agent can reuse the library. Use it with the official Figma plugin and the companion skills listed in its instructions.
 
-The source folders are `plugins/product-discovery/skills/product-discovery/` and `plugins/product-discovery/skills/product-design/`. Both are explicitly declared in the plugin manifests.
+### Engineering
+
+| Skill | What it does |
+|---|---|
+| `production-readiness` (experimental) | Guides technical and nontechnical people through release preparation: local audit, agreed repairs and one offline HTML checklist with evidence, history, a preparation percentage and separate blockers. |
+
+`production-readiness` creates or resumes `docs/production-readiness.html` in the analyzed project. It groups requirements into access, data protection, working user journeys, deployment and rollback, monitoring, and incident recovery. The Polish interface explains the next action, who can take it and how to verify it. All state is embedded in that HTML; no companion JSON file is required.
+
+The rating is the percentage of applicable mandatory requirements supported by current evidence, not a safety score. Missing evidence, stale checks and accepted risk cannot turn a blocker green. After reviewing a proposed repair package, the agent can implement local fixes and recheck results. It does not deploy or change production. This first version has renderer tests and still requires validation on a real product with practitioners.
+
+> Nie jestem osobą techniczną. Sprawdź ten projekt i poprowadź mnie krok po kroku przez przygotowanie do produkcji. Pokaż checklistę HTML, blokery i proponowane poprawki.
+
+The source folders are `plugins/product-discovery/skills/product-discovery/`, `plugins/product-discovery/skills/product-design/` and `plugins/product-discovery/skills/engineering/`. All three are explicitly declared in the plugin manifests.
 
 ## Installation
 
@@ -166,6 +179,7 @@ Invoke a skill explicitly, for example:
 /product-discovery:interview-simulator
 /product-discovery:data-analysis
 /product-discovery:code-event-storming
+/product-discovery:production-readiness
 /product-discovery:super-landing-page
 /product-discovery:visual-direction-research
 /product-discovery:document-design-system-components
@@ -181,7 +195,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`; version `1.15.0` adds experimental `production-readiness`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
@@ -197,6 +211,7 @@ $product-discovery:interview-plan
 $product-discovery:interview-simulator
 $product-discovery:data-analysis
 $product-discovery:code-event-storming
+$product-discovery:production-readiness
 $product-discovery:super-landing-page
 $product-discovery:visual-direction-research
 $product-discovery:document-design-system-components
@@ -217,7 +232,7 @@ This repository is a standalone marketplace for ChatGPT, Claude and Codex. Users
 
 ## What earns a place here
 
-We publish a skill only after:
+We mark a skill as stable only after:
 
 - We have used it on real product work.
 - It has survived contact with practitioners shipping actual products.
@@ -225,7 +240,7 @@ We publish a skill only after:
 - Its hard rules, checks and failure modes are written down.
 - It keeps decisions with the human where judgment matters.
 
-We do not publish demo-only workflows or add skills to make the catalogue look bigger. A skill stays in the lab until it meets this bar.
+Experimental skills are labeled in the catalogue and in their instructions until they meet this bar. Their test results do not substitute for use on real product work.
 
 Everything in this repository is released under the [MIT License](LICENSE). You can copy the skills, modify them, use them commercially and make them your own.
 

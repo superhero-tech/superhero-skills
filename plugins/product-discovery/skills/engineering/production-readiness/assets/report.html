@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>@@TITLE@@ - przygotowanie do produkcji</title>
+<style>
+:root{color-scheme:light;--ink:#182f38;--muted:#526269;--paper:#f4f3ed;--line:#d6dfda;--green:#176453;--orange:#9b3d17;--white:#fff;--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--green)}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #c27412;outline-offset:4px}main{max-width:1160px;margin:auto;padding:36px 28px 72px}.topline{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px;font-size:14px}.brand{font-weight:800;letter-spacing:.03em}.eyebrow{text-transform:uppercase;letter-spacing:.09em;font-size:12px;font-weight:800;margin:0 0 12px}h1{font-size:clamp(30px,5vw,52px);line-height:1.1;margin:22px 0 12px;letter-spacing:-.035em}h2{font-size:24px;line-height:1.25;margin:0 0 12px}h3{font-size:18px;line-height:1.4;margin:0}p{margin:10px 0 14px}.muted,small{color:var(--muted)}.intro{max-width:760px;margin-bottom:26px}.overview{display:grid;grid-template-columns:1fr 1fr;gap:18px}.rating,.next{padding:28px;border-radius:var(--radius)}.rating{background:var(--ink);color:var(--white)}.rating .muted,.rating small{color:#ccdbd8}.score{font-size:76px;font-weight:750;letter-spacing:-.065em;line-height:1.15}.fraction{font-size:18px}.verdict{font-size:21px;font-weight:700;margin-top:22px}.blocker-count{display:inline-block;background:#ffdfb7;color:#502d12;padding:6px 12px;border-radius:6px;font-weight:700}.next{background:#e0ece6;border:1px solid #c6d9ce;display:flex;flex-direction:column;align-items:flex-start}.next .button{margin-top:auto}.button{display:inline-block;background:var(--green);color:#fff;text-decoration:none;border-radius:8px;padding:11px 16px;font-weight:700}.context{margin:22px 0 30px;padding:16px 20px;background:#fff;border:1px solid var(--line);border-radius:12px}summary{cursor:pointer;font-weight:650;padding:8px 0}summary:hover{color:var(--green)}dl{display:grid;grid-template-columns:1fr 1fr;gap:18px}dt{font-size:13px;color:var(--muted)}dd{margin:4px 0 0}code{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 32px}.category{background:white;border:1px solid var(--line);border-radius:12px;padding:17px;display:grid;grid-template-columns:1fr auto;gap:10px;text-decoration:none;color:var(--ink)}.category:hover{border-color:var(--green)}.category strong{line-height:1.35}.category>span{color:var(--green);font-size:22px;font-weight:750}.category small{grid-column:1/-1}.toolbar{padding:18px;background:#e7eae4;border-radius:12px;display:flex;gap:16px;align-items:end;flex-wrap:wrap}.toolbar label{font-size:13px;font-weight:700;display:block}.toolbar input,.toolbar select{font:inherit;color:var(--ink);padding:10px;border:1px solid #8e9c95;border-radius:6px;background:white;max-width:100%}.toolbar input{width:300px}.toolbar button{background:none;border:1px solid #8e9c95;border-radius:6px;padding:11px;font:inherit;cursor:pointer}.category-section{margin-top:40px}.check{border:1px solid var(--line);background:white;border-radius:12px;margin:14px 0;padding:22px}.check-head{display:flex;align-items:start;justify-content:space-between;gap:15px}.badge{display:inline-block;flex-shrink:0;font-size:12px;padding:5px 9px;border-radius:5px;font-weight:700;background:#edf0ed}.badge.blocker{color:#853312;background:#fff0df}.badge.passed{background:#e0f0e6;color:#17503b}.badge.recommendation{color:#3e5474;background:#eaf0fa}.check>.muted{font-size:13px}.check details{border-top:1px solid #e8ece8;margin-top:12px;padding-top:4px}.check ol{padding-left:22px}.check li{margin:8px 0}.evidence{padding-left:22px}.evidence li+li{border-top:1px solid var(--line);padding-top:12px}.risk{border-left:4px solid #be7928;background:#fff5e5;padding:12px 16px;font-size:14px}.history{margin-top:36px;border-top:1px solid var(--line);padding-top:24px}.history details{background:white;padding:12px 18px;margin-top:10px;border-radius:10px}.footer{margin-top:36px;border-top:1px solid var(--line);padding-top:18px;font-size:13px}.empty{padding:24px;text-align:center}.skip{position:absolute;left:-10000px}.skip:focus{left:20px;top:10px;background:white;padding:12px;z-index:10}[hidden]{display:none!important}
+@media(max-width:750px){main{padding:20px 16px 40px}.overview{grid-template-columns:1fr}.categories{grid-template-columns:1fr 1fr}.rating,.next{padding:22px}.check-head{flex-direction:column;gap:8px}.toolbar{align-items:stretch;flex-direction:column}.toolbar input{width:100%}.topline{align-items:start;flex-direction:column;gap:5px}.score{font-size:64px}dl{grid-template-columns:1fr}}
+@media(max-width:420px){.categories{grid-template-columns:1fr}.check{padding:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;font-size:11pt}main{max-width:none;padding:0}.toolbar,.skip,.button{display:none!important}.rating{background:white;color:black;border:1px solid #aaa}.rating .muted,.rating small{color:#444}.score{font-size:40px}.overview{grid-template-columns:1fr 1fr}.categories{grid-template-columns:repeat(3,1fr)}.check{break-inside:avoid}.category-section[hidden],.check[hidden]{display:block!important}.history{break-before:page}a{color:inherit;text-decoration:none}details::details-content{content-visibility:visible;display:block}}
+</style>
+</head>
+<body>
+<a class="skip" href="#checklist">Przejdź do checklisty</a>
+<main>
+<header class="topline"><span class="brand">PRZYGOTOWANIE DO PRODUKCJI</span><span>@@PHASE@@ · Zapis: @@SAVED@@</span></header>
+<h1>@@TITLE@@</h1>
+<p class="intro">Sprawdź, co już działa, co wymaga poprawy i jaki jest następny krok. Agent aktualizuje tę checklistę podczas pracy z Tobą.</p>
+<div class="overview">
+<section class="rating" aria-label="Wynik przygotowania"><p class="eyebrow">Przygotowanie do wydania</p><div class="score">@@SCORE@@</div><p class="fraction">@@PASSED@@ z @@TOTAL@@ wymagań obowiązkowych spełnionych</p><p class="verdict">@@VERDICT@@</p><p class="blocker-count">Otwarte blokery: @@BLOCKERS@@</p><p class="muted">Wynik pokazuje postęp przygotowań. Jeden poważny brak może blokować wydanie także przy wysokim wyniku.</p></section>
+<section class="next" aria-label="Następny krok">@@NEXT@@</section>
+</div>
+<details class="context"><summary>Co oceniliśmy i jak liczymy wynik</summary><dl>@@CONTEXT@@</dl><p><strong>Wersja kodu:</strong> <code>@@VERSION@@</code></p><p>Wynik to odsetek spełnionych wymagań obowiązkowych, zaokrąglony w dół. Wymagania wyłączone z uzasadnieniem nie są liczone. Brak aktualnego dowodu i zaakceptowane ryzyko nie dodają punktów. Zalecenia pokazujemy osobno.</p><p>To zapis oceny z podanej daty, a nie stały monitoring. Zmiana aplikacji lub środowiska wymaga ponownego sprawdzenia. 100% oznacza spełnienie wymagań tej checklisty dla wskazanego zakresu; decyzja o wydaniu należy do Ciebie.</p></details>
+<nav class="categories" aria-label="Kategorie checklisty">@@CATEGORIES@@</nav>
+<div id="checklist"><h2>Twoja checklista</h2><p class="muted">Rozwiń punkt, aby zobaczyć instrukcję lub dowody. Statusy aktualizuje agent po sprawdzeniu.</p></div>
+<div class="toolbar" id="filters" hidden>
+<div><label for="search">Znajdź wymaganie</label><input id="search" type="search" placeholder="Np. kopia danych lub logowanie"></div>
+<div><label for="filter">Pokaż</label><select id="filter"><option value="all">Wszystkie punkty</option><option value="blocker">Blokujące wydanie</option><option value="passed">Spełnione wymagania</option><option value="recommendation">Zalecane usprawnienia</option><option value="excluded">Nie dotyczy</option></select></div>
+<button type="button" id="reset">Wyczyść filtry</button><span id="count" role="status" aria-live="polite"></span>
+</div>
+<noscript><p>Cała checklista jest dostępna poniżej. Włącz JavaScript, jeśli chcesz używać filtrów.</p></noscript>
+<p id="empty" class="empty" hidden>Brak pasujących punktów. Zmień wyszukiwanie lub wyczyść filtry.</p>
+@@SECTIONS@@
+<section class="history"><h2>Historia ocen</h2><p class="muted">Poprzednie wyniki pozostają zapisane. Nowe wymagania i nieaktualne dowody mogą obniżyć wynik.</p>@@HISTORY@@</section>
+<footer class="footer">Plik działa offline. Nie wysyła danych i nie zmienia aplikacji. Aby zaktualizować ocenę, wróć do rozmowy z agentem i poproś o ponowne sprawdzenie gotowości do produkcji.</footer>
+</main>
+<script id="readiness-data" type="application/json">@@DATA@@</script>
+<script>
+(() => {
+  const search = document.querySelector('#search');
+  const filter = document.querySelector('#filter');
+  const checks = [...document.querySelectorAll('.check')];
+  const sections = [...document.querySelectorAll('.category-section')];
+  const update = () => {
+    const term = search.value.toLocaleLowerCase('pl').trim();
+    checks.forEach(item => {
+      const kindMatch = filter.value === 'all' || item.dataset.kind === filter.value ||
+        (filter.value === 'excluded' && item.querySelector('.badge').textContent === 'Nie dotyczy');
+      item.hidden = !(kindMatch && item.textContent.toLocaleLowerCase('pl').includes(term));
+    });
+    sections.forEach(section => { section.hidden = [...section.querySelectorAll('.check')].every(item => item.hidden); });
+    const count = checks.filter(item => !item.hidden).length;
+    document.querySelector('#count').textContent = `Widoczne: ${count} z ${checks.length}`;
+    document.querySelector('#empty').hidden = count !== 0;
+  };
+  const reset = () => { search.value = ''; filter.value = 'all'; update(); };
+  document.querySelector('#filters').hidden = false;
+  search.addEventListener('input', update);
+  filter.addEventListener('change', update);
+  document.querySelector('#reset').addEventListener('click', reset);
+  document.querySelectorAll('.jump').forEach(link => link.addEventListener('click', () => {
+    reset();
+    const target = document.getElementById(link.hash.slice(1));
+    const instructions = target && target.querySelector('details');
+    if (instructions) instructions.open = true;
+  }));
+  let openBeforePrint = [];
+  window.addEventListener('beforeprint', () => {
+    openBeforePrint = [...document.querySelectorAll('details')].filter(node => node.open);
+    document.querySelectorAll('details').forEach(node => { node.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll('details').forEach(node => { node.open = openBeforePrint.includes(node); });
+  });
+  update();
+})();
+</script>
+</body>
+</html>
