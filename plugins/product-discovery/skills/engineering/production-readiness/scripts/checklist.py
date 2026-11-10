@@ -213,14 +213,15 @@ def item_html(item, model):
                   e(risk['person']) + ': ' + e(risk['reason']) + '</p><small>' + e(risk['recorded_at']) + '</small></aside>') if risk else ''
     steps = ''.join('<li>' + e(s) + '</li>' for s in item['steps'])
     exclusion = ('<p><strong>Dlaczego nie dotyczy:</strong> ' + e(item['applicability_reason']) + '</p>') if item['applicability'] == 'no' else ''
-    return f'''<article class="check" id="{e(item['id'])}" data-kind="{kind}" data-category="{e(item['category'])}">
-<div class="check-head"><h3>{e(item['title'])}</h3><span class="badge {kind}">{e(label(item))}</span></div>
+    return f'''<details class="check" id="{e(item['id'])}" data-kind="{kind}" data-category="{e(item['category'])}">
+<summary class="check-summary"><span class="badge {kind}">{e(label(item))}</span><span class="check-title">{e(item['title'])}</span></summary>
+<div class="check-body">
 <p class="muted">{'Wymagane do wydania' if item['required'] else 'Zalecane usprawnienie'} · Następny krok: {e(OWNERS[item['owner']])}</p>
 <p>{e(item['finding'])}</p>{exclusion}{acceptance}
-<details><summary>Dlaczego to ważne i co zrobić</summary><p>{e(item['why'])}</p><ol>{steps}</ol>
+<p><strong>Dlaczego to ważne:</strong> {e(item['why'])}</p><h4>Co zrobić krok po kroku</h4><ol>{steps}</ol>
 <p><strong>Jak potwierdzimy:</strong> {e(item['verification'])}</p><p class="muted">Kiedy dotyczy: {e(item['condition'])}</p>
-<p class="muted">Uzasadnienie wymagania: {e(item['rationale'])}</p></details>
-<details><summary>Dowody i szczegóły techniczne ({len(item['evidence'])})</summary><ul class="evidence">{evidence or '<li>Brak potwierdzenia. Ten punkt wymaga sprawdzenia.</li>'}</ul><p class="muted">ID: {e(item['id'])}</p></details></article>'''
+<p class="muted">Uzasadnienie wymagania: {e(item['rationale'])}</p>
+<details><summary>Dowody i szczegóły techniczne ({len(item['evidence'])})</summary><ul class="evidence">{evidence or '<li>Brak potwierdzenia. Ten punkt wymaga sprawdzenia.</li>'}</ul><p class="muted">ID: {e(item['id'])}</p></details></div></details>'''
 
 
 def document(model):
@@ -240,7 +241,7 @@ def document(model):
         stats = metrics(model, items)
         percent = str(stats['score']) + '%' if stats['score'] is not None else 'Nie dotyczy'
         categories.append(f'<a class="category jump" href="#cat-{cat["id"]}"><strong>{e(cat["title"])}</strong><span>{percent}</span><small>{stats["passed"]}/{stats["total"]} wymagań · Blokery: {stats["blockers"]}</small></a>')
-        sections.append(f'<section class="category-section" id="cat-{cat["id"]}"><h2>{e(cat["title"])}</h2><p class="muted">{e(cat["description"])}</p>' + ''.join(item_html(i, model) for i in items) + '</section>')
+        sections.append(f'<section class="category-section" id="cat-{cat["id"]}"><h2>{e(cat["title"])}</h2><p class="muted">{e(cat["description"])}</p><div class="check-list">' + ''.join(item_html(i, model) for i in items) + '</div></section>')
     history = []
     for old in reversed(model['history']):
         stats = metrics(old)

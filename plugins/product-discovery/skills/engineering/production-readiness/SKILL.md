@@ -14,7 +14,7 @@ Requires local repository access and Python 3.9 or later. The HTML works offline
 - Assume the user may not know Git, hosting, rollback or databases. Explain the consequence in everyday language before the technical term. Put technical evidence behind details.
 - Inspect what you can yourself. Ask only for missing decisions or facts you cannot obtain. Ask a small, concrete question, recommend an answer and explain the tradeoff. Never ask the user to run an unexplained terminal command.
 - At each checkpoint say what is already done, what prevents release and the one next step. Distinguish work the agent can do from a decision or action for the person. Give numbered, provider-specific instructions when external action is needed; verify current provider documentation before giving navigation steps.
-- Organize the HTML into six categories, not a wall of security jargon. Each item explains why it matters, what was found, how to check it and what to do next.
+- Organize the HTML into six categories. Keep each check collapsed by default, showing only its current status and title in a compact row. Expand it to reveal why it matters, what was found, how to check it and what to do next; technical evidence can remain in a nested disclosure.
 
 ## Establish context and resume
 
