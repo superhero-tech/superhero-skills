@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>A/B test</title>
+<style>__CARD_CSS__</style>
+</head>
+<body>
+<main>
+  <header class="topbar"><span class="brand"><span class="brandmark">A/B</span> <span data-i18n="workspace"></span></span><button id="print" data-i18n="print"></button></header>
+  <div id="demo" class="banner" hidden data-i18n="demo"></div>
+  <div class="pagehead"><div><div class="eyebrow" data-i18n="savedPlan"></div><h1 id="title"></h1></div></div>
+  <div class="layout">
+    <div class="brief">
+      <section class="panel hypothesis"><div class="section-label"><span class="step">01</span><h2 data-i18n="hypothesis"></h2></div><p id="hypothesis"></p>
+        <div class="variants"><article><span class="variant">A</span><h3 data-i18n="control"></h3><p id="control"></p><small>50%</small></article><article class="variant-b"><span class="variant">B</span><h3 data-i18n="treatment"></h3><p id="treatment"></p><small>50%</small></article></div>
+      </section>
+      <section class="panel"><div class="section-label"><span class="step">02</span><h2 data-i18n="population"></h2></div><p id="population"></p><div class="plan-grid"><div><small data-i18n="weekly"></small><strong id="saved-traffic"></strong></div><div><small data-i18n="allocation"></small><strong>50 / 50</strong></div></div></section>
+      <section class="panel"><div class="section-label"><span class="step">03</span><h2 data-i18n="primary"></h2></div><h3 id="metric"></h3><p id="metric_definition"></p><div class="metric-flow"><div><small data-i18n="baseline"></small><strong id="saved-baseline"></strong></div><span class="arrow">→</span><div><small data-i18n="target"></small><strong id="saved-target"></strong></div><span id="saved-effect" class="chip"></span></div><p class="source" id="baseline_source"></p><div class="plan-grid"><div><small data-i18n="recruitment"></small><strong id="saved-duration"></strong></div><div><small data-i18n="readout"></small><strong id="saved-readout"></strong></div></div></section>
+      <section class="panel"><div class="section-label"><span class="step">04</span><h2 data-i18n="guardrails"></h2></div><div id="guardrails"></div><p class="source" data-i18n="safetyNote"></p></section>
+    </div>
+    <aside>
+      <section class="panel decision"><div class="decision-heading"><div class="eyebrow" data-i18n="recommendation"></div><span id="status" class="badge"></span></div><p id="recommendation"></p><ul id="blockers"></ul><h3 data-i18n="decisionRule"></h3><p id="decision_rule"></p></section>
+      <section class="panel calculator"><div class="calc-heading"><div><div class="eyebrow" data-i18n="before"></div><h2 data-i18n="calculator"></h2></div><span class="chip">α 0.05 · 80%</span></div><p class="muted" data-i18n="scenarioNote"></p>
+        <div id="unsupported" class="banner" hidden data-i18n="unsupported"></div>
+        <fieldset id="scenario-fields"><legend class="sr-only" data-i18n="calculator"></legend><div id="controls"></div><select id="effect-type" class="effect-unit" aria-label="Effect unit"><option value="relative">%</option><option value="pp">pp</option></select></fieldset>
+        <div class="scenario-target"><span data-i18n="scenarioTarget"></span><strong id="scenario-target"></strong></div>
+        <div id="calc-verdict" class="verdict" role="status" aria-live="polite"><span id="scenario-status" class="badge"></span><p id="scenario-verdict"></p></div>
+        <div class="power-label"><span data-i18n="power"></span><strong id="power"></strong></div><div class="power-track" aria-hidden="true"><i id="power-fill"></i><b></b></div><p class="tiny" data-i18n="powerExplain"></p>
+        <div class="stats-grid"><div><small data-i18n="available"></small><strong id="available"></strong></div><div><small data-i18n="needed"></small><strong id="needed"></strong></div><div><small data-i18n="neededDays"></small><strong id="needed-days"></strong></div><div><small data-i18n="scenarioReadout"></small><strong id="scenario-readout"></strong></div></div>
+        <div class="mde"><small data-i18n="mde"></small><strong id="mde"></strong></div><p class="tiny" id="sizing-note"></p><div class="actions"><button id="reset" data-i18n="reset"></button><button id="export" data-i18n="export"></button></div><p class="tiny" data-i18n="defaults"></p>
+      </section>
+      <section class="panel results"><div class="eyebrow" data-i18n="after"></div><h2 data-i18n="results"></h2><p class="muted" data-i18n="observedNote"></p><fieldset id="result-fields"><legend class="sr-only" data-i18n="observedCounts"></legend><div class="result-table"><span data-i18n="variant"></span><span data-i18n="assigned"></span><span data-i18n="successes"></span><b>A</b><input id="nA" type="number" min="1" step="1" aria-label="A: N"><input id="xA" type="number" min="0" step="1" aria-label="A: X"><b>B</b><input id="nB" type="number" min="1" step="1" aria-label="B: N"><input id="xB" type="number" min="0" step="1" aria-label="B: X"></div><label class="check"><input id="complete" type="checkbox"><span data-i18n="complete"></span></label><label class="check"><input id="quality" type="checkbox"><span data-i18n="quality"></span></label></fieldset><div id="result-output" role="status" aria-live="polite"></div></section>
+    </aside>
+  </div>
+  <footer><span data-i18n="footer"></span><details><summary data-i18n="method"></summary><p data-i18n="methodText"></p><a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.proportion.power_proportions_2indep.html">statsmodels · power</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.proportion.proportions_ztest.html">statsmodels · z-test</a></details></footer>
+</main>
+<script type="application/json" id="card-data">__CARD_DATA__</script>
+<script>__STATS_JS__</script>
+<script>__CARD_JS__</script>
+</body>
+</html>

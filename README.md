@@ -46,6 +46,7 @@ The skills need no separate API keys, personal knowledge vault or private develo
 
 - A host that can read skills and save files in your chosen project.
 - Python 3 for the bundled tree, affinity-map and recommendation renderers; these use only the standard library. The optional customer-opinion counter also uses standard Python.
+- For `ab-test-design`, Python 3 to render a standalone HTML card. Node.js is needed only for numerical checks and the optional command-line summary; the interactive calculator runs in the browser.
 - For `code-event-storming`, access to the project's source code and Python 3.9 or later. The renderer uses the standard library, and the generated board works offline in a browser with JavaScript enabled.
 - For `production-readiness`, local project access and Python 3.9 or later. The renderer uses only the standard library; the single HTML report works offline. JavaScript enables optional viewing filters.
 - For data analysis, pandas, matplotlib and seaborn; DuckDB for SQL, and readers such as openpyxl or pyarrow when the input format needs them. The plugin provides instructions and scripts, not a Python distribution or these libraries.
@@ -67,6 +68,7 @@ These skills help you understand customers, examine product and market evidence,
 | `supersprint` | Guides a discovery cycle with the included specialists, saved decisions and a growing HTML/Mermaid tree. |
 | `pres-prioritization` | Compares opportunities using Pain, Reach, Evidence and Strategic fit, with sourced scores and human review. |
 | `experiment-design` | Turns selected ideas into concrete prototypes, demand tests or commitment tests, with hypotheses and observable changes. |
+| [`ab-test-design`](plugins/product-discovery/skills/product-discovery/ab-test-design/SKILL.md) | Helps decide whether an A/B test is worth running, checks sample size and duration, and creates a simple offline HTML test card. |
 | `customer-research` | Finds public customer opinions and delivers a short report, sourced CSV, and HTML with grouped quotes and mention counts. |
 | `affinity-mapping` | Turns interview transcripts into evidenced themes, opportunities and an interactive evidence map. |
 | `desk-research` | Answers a research question using current sources, counterevidence and a separate evidence register. |
@@ -74,6 +76,10 @@ These skills help you understand customers, examine product and market evidence,
 | `interview-simulator` | Lets you practice customer interviews with a fictional persona, then evaluates your questions, technique and mistakes. |
 | `data-analysis` | Guides analysis from a business question through data checks, exploration and recommendations. |
 | `code-event-storming` | Reconstructs business processes from an existing codebase in an interactive EventStorming board with source excerpts and open questions. |
+
+#### A/B Test Design
+
+`ab-test-design` turns a proposed product change into a hypothesis, population, success metric and guardrail monitoring rule. It checks whether the available traffic can detect a useful effect, plans recruitment in full weeks with a 14-day minimum, and adds the outcome window before the final readout. The offline card keeps the experiment description on the left and the recommendation and one interactive calculator on the right. Guardrails use a simple predeclared check for detected deterioration; no detected drop is not proof of zero harm.
 
 #### Supersprint: from signals to a decision
 
@@ -172,6 +178,7 @@ Invoke a skill explicitly, for example:
 /product-discovery:supersprint
 /product-discovery:pres-prioritization
 /product-discovery:experiment-design
+/product-discovery:ab-test-design
 /product-discovery:customer-research
 /product-discovery:affinity-mapping
 /product-discovery:desk-research
@@ -195,7 +202,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`; version `1.15.0` adds `production-readiness`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`; version `1.15.0` adds `production-readiness`. Version `1.16.0` adds `ab-test-design`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
@@ -204,6 +211,7 @@ $product-discovery:supersentence
 $product-discovery:supersprint
 $product-discovery:pres-prioritization
 $product-discovery:experiment-design
+$product-discovery:ab-test-design
 $product-discovery:customer-research
 $product-discovery:affinity-mapping
 $product-discovery:desk-research

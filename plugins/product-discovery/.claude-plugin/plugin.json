@@ -1,7 +1,7 @@
 {
   "name": "product-discovery",
-  "version": "1.15.0",
-  "description": "Product discovery and design workflows: business ideas, Supersprint discovery cycles, customer research, affinity mapping, code-based EventStorming, desk research, interview planning and simulation, data analysis, PRES prioritization, experiment design, art-directed landing pages, visual direction research, design-system component documentation, and reusable Figma libraries. Production-readiness guides release preparation with an evidence-backed offline HTML checklist.",
+  "version": "1.16.0",
+  "description": "Product discovery and design workflows: business ideas, Supersprint discovery cycles, customer research, affinity mapping, code-based EventStorming, desk research, interview planning and simulation, data analysis, PRES prioritization, experiment design, A/B test planning with traffic and duration checks, art-directed landing pages, visual direction research, design-system component documentation, and reusable Figma libraries. Production-readiness guides release preparation with an evidence-backed offline HTML checklist.",
   "author": {
     "name": "Superhero.tech",
     "email": "superhero@superhero.tech",
@@ -30,7 +30,8 @@
     "component-documentation",
     "event-storming",
     "engineering",
-    "production-readiness"
+    "production-readiness",
+    "ab-testing"
   ],
   "displayName": "Superhero Skills",
   "skills": [

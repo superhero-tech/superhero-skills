@@ -1,0 +1,34 @@
+{
+  "language": "en",
+  "illustrative": true,
+  "title": "Shorter signup form",
+  "hypothesis": "If we reduce the signup form from eight fields to four, more people will create an account because the form requires less effort.",
+  "control": "The current signup form with eight fields.",
+  "treatment": "A four-field form. Ask the remaining questions after account creation.",
+  "population": "New people starting signup. Assign a stable variant before displaying the form. Define staff and bot exclusions before assignment.",
+  "metric": "Account creation rate",
+  "metric_definition": "People who create an account within one day / all unique people assigned to the variant.",
+  "baseline_source": "Illustrative assumption: 20%. Measure this population and outcome window before running a real test.",
+  "baseline": 0.2,
+  "effect": 5,
+  "effect_type": "relative",
+  "direction": "up",
+  "weekly_users": 1000,
+  "recruitment_days": 14,
+  "primary_window_days": 1,
+  "guardrail_window_days": 7,
+  "max_readout_days": 42,
+  "calculator_supported": true,
+  "guardrails": [
+    {
+      "name": "Activation within seven days",
+      "definition": "People who complete their first key action / all people assigned to the variant.",
+      "limit": "If B shows a statistically significant drop against A after full follow-up, hold the rollout and investigate."
+    }
+  ],
+  "blockers": [
+    "Confirm the baseline conversion rate and the flow of new unique people."
+  ],
+  "recommendation": "Revise this plan. Confirm the baseline first. At these illustrative numbers, traffic is insufficient to detect an increase from 20% to 21% in 14 days.",
+  "decision_rule": "After the planned horizon and full follow-up, assess the effect, uncertainty and activation. An inconclusive result does not establish success. A significant primary improvement alone does not authorize rollout."
+}
