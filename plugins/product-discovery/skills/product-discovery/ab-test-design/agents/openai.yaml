@@ -1,0 +1,4 @@
+interface:
+  display_name: "A/B Test Design"
+  short_description: "Check feasibility and build an interactive A/B test card"
+  default_prompt: "Use $ab-test-design to plan my A/B test and check whether our traffic is sufficient."
