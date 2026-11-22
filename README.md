@@ -65,7 +65,7 @@ These skills help you understand customers, examine product and market evidence,
 | Skill | What it does |
 |---|---|
 | `supersentence` | Clarifies a business idea through a compact interview and market research, ending with a super sentence, an evidence-based verdict and a next test. |
-| `supersprint` | Guides a discovery cycle with the included specialists, saved decisions and a growing HTML/Mermaid tree. |
+| `supersprint` | Guides the next decision with recommendations and alternatives, saved choices, a growing evidence tree and optional PDF export. |
 | `pres-prioritization` | Compares opportunities using Pain, Reach, Evidence and Strategic fit, with sourced scores and human review. |
 | `experiment-design` | Turns selected ideas into concrete prototypes, demand tests or commitment tests, with hypotheses and observable changes. |
 | [`ab-test-design`](plugins/product-discovery/skills/product-discovery/ab-test-design/SKILL.md) | Helps decide whether an A/B test is worth running, checks sample size and duration, and creates a simple offline HTML test card. |
@@ -93,7 +93,11 @@ At the Opportunities stage, Supersprint uses the included `pres-prioritization` 
 
 The tree grows as you work, with an HTML view, a Mermaid export, highlighted selections and links to evidence. Product context and the current outcome stay visible above the tree, even before any branches exist. The context is saved in the project and mirrored to a native Canvas when the host supports that working surface.
 
-Each branch is centered on its own parent, with room between cards and zoom controls from 20% to 150%, reset and fit-entire-tree. Clicking a card highlights its connections; dotted lines from supporting signals appear only when you inspect the card they support.
+The tree runs from top to bottom: Goal, Signals, Opportunities, Ideas and Experiments. Each signal appears once and connects to every opportunity it supports. Evidence links stay visible, with elbow connectors between the layers; signals do not connect directly to ideas or experiments. Clicking a card highlights its connections. Zoom controls range from 1% to 150%, with reset and fit-entire-tree.
+
+At each stopping point, Supersprint recommends a concrete next action and offers relevant alternatives. After quantitative analysis, these can include qualitative work, targeted desk research or moving to opportunities when you consider the available knowledge sufficient. It records your choice and resumes that route, carrying uncertainties into PRES rather than requiring every research method.
+
+On request, PDF export includes the original full-card vector tree on a zoomable graph-sized page, followed by compact A4 landscape tables with titles, status, source links and incoming/outgoing ID mappings. It preserves the full tree while keeping the relationship guide short. PDF export requires ReportLab; the offline HTML and Mermaid exports work without it.
 
 Titles and previews explain the actual person, situation and proposed change in natural language across Supersprint and its specialists.
 
@@ -202,7 +206,7 @@ codex plugin marketplace add superhero-tech/superhero-skills
 codex plugin add product-discovery@superhero-skills
 ```
 
-Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`; version `1.15.0` adds `production-readiness`. Version `1.16.0` adds `ab-test-design`. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
+Start a new Codex session after installation. Version `1.11.0` adds `visual-direction-research` and `document-design-system-components` alongside the existing `build-figma-library`; check that your installed plugin has updated to this version or later to use the complete design workflow. Version `1.14.0` adds `code-event-storming`; version `1.15.0` adds `production-readiness`. Version `1.16.0` adds `ab-test-design`. Version `1.17.0` updates Supersprint with recommended next actions, research alternatives, a top-to-bottom evidence tree and optional PDF export. You can also open `/plugins` to browse the `Superhero Skills` marketplace.
 
 Invoke a skill explicitly, for example:
 
