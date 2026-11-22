@@ -38,6 +38,14 @@ When the host exposes a writable native Canvas and it is the intended working su
 
 Specialist checkpoints can satisfy the corresponding stage review when they cover the same artifact and revision; do not duplicate the same approval. Ask one consequential question at a time. Previously accepted unchanged work does not need to pass its checkpoints again.
 
+## Guide choices inside the checkpoint
+
+Use `references/guided-navigation.md` to make the pending decision concrete. Pair input/review questions with a recommended route and useful alternatives instead of adding a separate generic "what next?" question. Do not add a navigation approval on top of the existing stage checkpoint.
+
+When a user may proceed after Signals, offer a clearly scoped action such as "Accept this displayed synthesis and prepare candidate Opportunities plus PRES from the current material". Choosing that option can explicitly approve the current revision and supply the next-stage drafting input in one reply. Record the actual reply, offered option and displayed revision; do not repeat either question if already answered. A vague method choice or "enough research" statement does not by itself approve an unspecified draft. Resolve only the still-missing review, without insisting on another research method.
+
+Choosing another research method stays within Signals: it is not acceptance of the entire stage. Preserve the agreed goal, integrate that analysis and return to the same evidence-sufficiency decision. Existing specialist review can satisfy review of the matching artifact, but do not promote a reviewed analysis into acceptance of an unseen synthesis.
+
 ## Persist and resume the actual checkpoint
 
 Use `human_gates.stages[stage]` from `assets/state-template.json`:
@@ -51,4 +59,4 @@ The renderer checks these records before writing a view: a later stage cannot pr
 
 On resume, `awaiting_input` repeats or clarifies the pending input question; `drafting` continues only that stage; `awaiting_review` shows the saved draft and asks for review; `accepted` enters the next stage. On older states, preserve actual accepted decisions and their evidence, initialize missing checkpoint records conservatively, and ask only at the first unresolved checkpoint. Do not mark historical acceptance without a supporting user decision.
 
-Only an explicit user instruction to skip named checkpoints changes this default. Record its scope, actual response/source and a stable ID in `human_gates.delegations`; a delegated stage review uses `decision: delegated` plus `delegation_id`, not a fabricated human approval. A general request to start or continue, a short reply, or access to files does not waive checkpoints. If the user restores human review, stop at the next applicable checkpoint.
+Only an explicit user instruction to skip named checkpoints changes this default. Record its scope, actual response/source and a stable ID in `human_gates.delegations`; a delegated stage review uses `decision: delegated` plus `delegation_id`, not a fabricated human approval. A general request to start or continue, an ambiguous short reply, or access to files does not waive checkpoints. A short selection of an explicitly scoped offered option can satisfy the named checkpoint; it is not a waiver. If the user restores human review, stop at the next applicable checkpoint.

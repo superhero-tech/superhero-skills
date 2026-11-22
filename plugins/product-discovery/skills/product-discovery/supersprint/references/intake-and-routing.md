@@ -27,9 +27,9 @@ Resolve a product root from explicit paths, current project and local rules. Def
 
 Use `signals/<kind>/raw/` and `signals/<kind>/analysis/<run>/` when new source organization is needed. Existing raw paths may be referenced rather than copied; never rewrite raw source content. Categories are useful organization, not research quotas. Specialist artifacts retain their native names and subfolders.
 
-## Handoff
+## Handoff and return
 
-Pass a specialist the actual question, decision, segment/population, time scope, selected inputs or search scope, known constraints, output directory and expected return. Register its artifacts and completion/review statuses in the cycle. Missing required specialist input leads to a named gap and a concrete way to gather it, not invented evidence.
+Pass a specialist the actual question, decision, segment/population, time scope, selected inputs or search scope, known constraints, output directory and expected return. Register its artifacts and completion/review statuses in the cycle. Set a bounded return condition and return to the router after the specialist: integrate the answer, update the tree and suggest the next move with alternatives as described in `references/guided-navigation.md`. Missing required specialist input leads to a named gap and a concrete way to gather it, not invented evidence.
 
 Keep user choices and hypotheses separate from verified observations. Brief metrics can be stated but unverified; source definitions and computed values may later challenge them. A repeat-measurement window is distinct from an achievement deadline.
 

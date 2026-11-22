@@ -159,5 +159,13 @@
         }
       }
     }
+  },
+  "navigation": {
+    "decision_question": null,
+    "recommended_id": null,
+    "options": [],
+    "selected_id": null,
+    "selection_source_refs": [],
+    "return_to": null
   }
 }
